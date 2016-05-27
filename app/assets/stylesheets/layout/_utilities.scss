@@ -15,11 +15,20 @@
   background: #4a4a4a;
 }
 .bg-grey {
-  background: #aeaeae;
+  background: $brand-gray;
+}
+.bg-red {
+  background: $red;
 }
 .bg-blue {
-  background: #00a3e1;
+  background: $blue;
+}
+.bg-light-blue {
+  background: $light-blue;
 }
 .bg-dark-blue {
-  background: #3b5998;
+  background: $brand-color;
+}
+.bg-green {
+  background: $green;
 }
