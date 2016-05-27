@@ -1,0 +1,13 @@
+@import '../config/variables';
+
+.home-item {
+  padding-top: 70px;
+  color: white;
+  text-align: justify;
+  h2 {
+    font-size: 60px;
+    padding-bottom: 30px;
+  };
+  p { padding: 0 100px 30px 100px };
+  &-polygonal { clip-path: polygon(0 0,100% $home-polygon,100% 100%,0 100%) };
+}
