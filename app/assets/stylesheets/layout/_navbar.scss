@@ -5,7 +5,7 @@
   z-index: 1;
   height: 65px;
   width: 100%;
-  transition: all 1s ease;
+  transition: all 0.3s ease;
   background: $brand-color;
   &:hover { background: $brand-color !important }
   &-container {
