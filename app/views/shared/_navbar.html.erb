@@ -7,6 +7,9 @@
     <div class="navbar-elements">
       <hr>
       <% if user_signed_in? %>
+        <% if current_user.admin %>
+          <%= link_to 'Admin', admin_root_path, class: "navbar-item" %>
+        <% end %>
         <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class: "navbar-item" %>
       <% else %>
         <%= link_to 'Se connecter', new_user_session_path, class: "navbar-item" %>
