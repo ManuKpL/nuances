@@ -32,3 +32,10 @@
 .bg-green {
   background: $green;
 }
+
+// Positions
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
