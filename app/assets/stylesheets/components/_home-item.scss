@@ -1,0 +1,36 @@
+.home-item {
+  padding: 70px 0;
+  margin-bottom: 20px;
+  text-align: justify;
+  &-title {
+    font-size: 60px;
+    padding-bottom: 30px;
+  };
+  &-content {
+      column-count: 2;
+      column-gap: 40px;
+      padding: 0 100px 20px 100px;
+      p {
+        margin-bottom: 30px;
+        font-weight: 300;
+        &::first-letter {
+          font-size: 50px;
+          line-height: 50px;
+          padding-right: 3px;
+          float: left;
+          font-weight: 400;
+        }
+      }
+  }
+  &-polygonal {
+    clip-path: polygon(0 0,100% $home-polygon,100% 100%,0 100%);
+    margin-top: -5vh;
+  };
+}
+
+@media screen and (max-width: 767px) {
+  .home-item-content {
+    column-count: 1;
+    padding: 0 20px 40px 40px;
+  }
+}

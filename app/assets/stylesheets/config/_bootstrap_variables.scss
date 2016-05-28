@@ -5,7 +5,7 @@
 
 // General style
 $font-family-sans-serif:  $base-font;
-$body-bg:                 white;
+$body-bg:                 $yellow;
 $font-size-base:          $base-size;
 $line-height-base:        $base-height;
 $headings-font-family:    $header-font;
@@ -13,9 +13,9 @@ $headings-font-family:    $header-font;
 // Semantic color scheme
 $brand-primary:   $blue;
 $brand-success:   $green;
-$brand-info:      $yellow;
+$brand-info:      $light-blue;
 $brand-danger:    $red;
-$brand-warning:   $orange;
+$brand-warning:   $gray-light;
 
 // Buttons / inputs radius
 $border-radius-base:  2px;

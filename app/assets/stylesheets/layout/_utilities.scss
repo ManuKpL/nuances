@@ -13,13 +13,36 @@
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
+  color: white;
 }
 .bg-grey {
-  background: #aeaeae;
+  background: $brand-gray;
+  color: white;
+}
+.bg-red {
+  background: $red;
+  color: white;
 }
 .bg-blue {
-  background: #00a3e1;
+  background: $blue;
+  color: white;
+}
+.bg-light-blue {
+  background: $light-blue;
+  color: white;
 }
 .bg-dark-blue {
-  background: #3b5998;
+  background: $brand-color;
+  color: white;
+}
+.bg-green {
+  background: $green;
+  color: white;
+}
+
+// Positions
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

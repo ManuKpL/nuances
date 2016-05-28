@@ -1,4 +1,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require_tree app-js/.
+//= require_tree ./app-js
