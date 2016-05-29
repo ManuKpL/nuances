@@ -13,6 +13,15 @@
 .marged-top { margin-top: 100px }
 
 // Backgrounds
+.bg-full {
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
 .bg-black {
   background: #4a4a4a;
   color: white;

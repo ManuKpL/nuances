@@ -1,7 +1,5 @@
 .query {
-  &-banner {
-    background-image: url(notebook);
-  }
+  &-banner-index { background-image: url(notebook) }
   &-container {
     display: flex;
     align-items: center;
