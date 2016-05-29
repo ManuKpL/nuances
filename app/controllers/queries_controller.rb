@@ -1,5 +1,7 @@
 class QueriesController < ApplicationController
 
+  before_action :find_query, only: :destroy
+
   def index
     @queries = Query.all
   end
@@ -17,6 +19,14 @@ class QueriesController < ApplicationController
   end
 
   def destroy
+    @query.destroy
+    redirect_to queries_path
+  end
+
+  private
+
+  def find_query
+    @query = Query.find(params[:id])
   end
 
 end
