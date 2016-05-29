@@ -1,4 +1,7 @@
 .query {
+  &-banner {
+    background-image: url(notebook);
+  }
   &-container {
     display: flex;
     align-items: center;
@@ -23,15 +26,15 @@
     font-size: 26px;
   }
   &-content {
-    flex: 3 1 auto;
+    flex: 1 1 auto;
     font-size: 16px;
   }
   &-description {
-    flex: 5 1 auto;
+    flex: 6 1 auto;
     font-size: 14px;
   }
   &-link {
-    flex: 1 0 auto;
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     a { color: $gray-dark }
