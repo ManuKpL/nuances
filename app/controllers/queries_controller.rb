@@ -1,9 +1,10 @@
 class QueriesController < ApplicationController
 
-  before_action :find_query, only: :destroy
+  before_action :find_query, only: [:destroy, :edit]
 
   def index
     @queries = Query.all
+    @themes = Theme.all
   end
 
   def new
