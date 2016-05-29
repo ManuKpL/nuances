@@ -1,3 +1,27 @@
 <div class="container marged-top">
 
+  <div class="container">
+    <div class="query-container">
+      <% @queries.each do |query| %>
+      <div class="query-item query-id">
+        <%= query.id %>
+      </div>
+      <hr>
+      <div class="query-item query-content">
+        <%= query.content %>
+      </div>
+      <hr>
+      <div class="query-item query-description">
+        <%= query.description %>
+      </div>
+      <hr>
+      <div class="query-item query-link">
+        <%= link_to query.see_more do %>
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
 </div>

@@ -1,0 +1,35 @@
+.query {
+  &-container {
+    display: flex;
+    align-items: center;
+    hr {
+      height: 30px;
+      width: 0;
+      border-right: 1px solid $brand-gray;
+      margin: 0 10px;
+    }
+  }
+  &-item {
+    padding: 10px 5px;
+  }
+  &-id {
+    flex: 0 0 40px;
+    text-align: right;
+    font-family: "Open Sans";
+    font-size: 26px;
+  }
+  &-content {
+    flex: 3 1 auto;
+    font-size: 16px;
+  }
+  &-description {
+    flex: 5 1 auto;
+    font-size: 14px;
+  }
+  &-link {
+    flex: 1 0 auto;
+    a {
+      color: $gray-dark;
+    }
+  }
+}
