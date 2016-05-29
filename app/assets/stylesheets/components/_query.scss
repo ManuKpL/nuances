@@ -39,4 +39,67 @@
     #delete:hover { color: $red }
     #edit:hover { color: $blue }
   }
+  &-badge {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 10px;
+    border-radius: 50%;
+    font-family: "Open Sans", "sans-serif";
+    font-size: 38px;
+    line-height: 38px;
+    p {
+      margin: 0;
+      z-index: 1;
+    }
+    &-container { position: relative }
+    &-right {
+      right: 0;
+      z-index: 3;
+    }
+    &-middle {
+      right: 60px;
+      z-index: 2;
+    }
+    &-left { right: 120px }
+    &:hover > p {
+      animation-name: badge-rotate;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+    }
+    &:hover > .query-badge-new-query { display: flex }
+    &-new-query {
+      display: none;
+      position: absolute;
+      line-height: 50px;
+      font-size: 14px;
+      width: 200px;
+      right: 25px;
+      border-radius: 2px;
+      z-index: 0;
+      animation-name: badge-content;
+      animation-duration: 0.5s;
+      animation-timing-function: ease-out;
+      transform-origin: 100% 0%;
+      &-link {
+        padding: 0 30px 0 15px;
+        color: white;
+        &:hover {
+          color: white;
+          background-color: rgba(250,250,250,0.3);
+          transition: background-color 0.3s ease;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@keyframes badge-rotate {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+@keyframes badge-content {
+  0% { transform: scaleX(0.1) }
+  100% { transform: scaleX(1) }
 }

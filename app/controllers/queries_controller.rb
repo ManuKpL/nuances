@@ -1,6 +1,6 @@
 class QueriesController < ApplicationController
 
-  before_action :find_query, only: [:destroy, :edit]
+  before_action :find_query, only: [:destroy, :edit, :update]
 
   def index
     @queries = Query.all
@@ -8,15 +8,27 @@ class QueriesController < ApplicationController
   end
 
   def new
+    @query = Query.new
   end
 
   def create
+    @query = Query.new(query_params)
+    if @query.save
+      redirect_to queries_path
+    else
+      render :edit
+    end
   end
 
   def edit
   end
 
   def update
+    if @query.update(query_params)
+      redirect_to queries_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -28,6 +40,10 @@ class QueriesController < ApplicationController
 
   def find_query
     @query = Query.find(params[:id])
+  end
+
+  def query_params
+    params.require(:query).permit(:theme_id, :content, :description, :see_more)
   end
 
 end

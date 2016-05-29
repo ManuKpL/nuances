@@ -11,7 +11,25 @@
     <% end %>
   </div>
 </div>
-<div class="container padded">
+<div class="container query-badge-container padded">
+  <div class="query-badge query-badge-right bg-green flex-center">
+    <p>+</p>
+    <div class="query-badge-new-query bg-green">
+      <%= link_to 'Ajouter une question', new_query_path, class: 'query-badge-new-query-link' %>
+    </div>
+  </div>
+  <div class="query-badge query-badge-middle bg-red flex-center">
+    <p>+</p>
+    <div class="query-badge-new-query bg-red">
+      <%= link_to 'Ajouter un choix', '#', class: 'query-badge-new-query-link' %>
+    </div>
+  </div>
+  <div class="query-badge query-badge-left bg-blue flex-center">
+    <p>+</p>
+    <div class="query-badge-new-query bg-blue">
+      <%= link_to 'Ajouter un thème', '#', class: 'query-badge-new-query-link' %>
+    </div>
+  </div>
   <% @themes.each do |theme| %>
     <h2><%= theme.name %></h2>
     <% theme.queries.each do |query| %>
