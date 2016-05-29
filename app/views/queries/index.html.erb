@@ -11,23 +11,23 @@
     <% end %>
   </div>
 </div>
-<div class="container query-badge-container padded">
-  <div class="query-badge query-badge-right bg-green flex-center">
+<div class="container round-button-container padded">
+  <div class="round-button round-button-right bg-green flex-center">
     <p>+</p>
-    <div class="query-badge-new-query bg-green">
-      <%= link_to 'Ajouter une question', new_query_path, class: 'query-badge-new-query-link' %>
+    <div class="round-button-new-element bg-green">
+      <%= link_to 'Ajouter une question', new_query_path, class: 'round-button-new-element-link' %>
     </div>
   </div>
-  <div class="query-badge query-badge-middle bg-red flex-center">
+  <div class="round-button round-button-middle bg-red flex-center">
     <p>+</p>
-    <div class="query-badge-new-query bg-red">
-      <%= link_to 'Ajouter un choix', '#', class: 'query-badge-new-query-link' %>
+    <div class="round-button-new-element bg-red">
+      <%= link_to 'Ajouter un choix', '#', class: 'round-button-new-element-link' %>
     </div>
   </div>
-  <div class="query-badge query-badge-left bg-blue flex-center">
+  <div class="round-button round-button-left bg-blue flex-center">
     <p>+</p>
-    <div class="query-badge-new-query bg-blue">
-      <%= link_to 'Ajouter un thème', '#', class: 'query-badge-new-query-link' %>
+    <div class="round-button-new-element bg-blue">
+      <%= link_to 'Ajouter un thème', '#', class: 'round-button-new-element-link' %>
     </div>
   </div>
   <% @themes.each do |theme| %>
