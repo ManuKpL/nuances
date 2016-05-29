@@ -47,8 +47,8 @@
       position: absolute;
       display: none;
       right: 0;
+      width: 100%;
       top: 101%;
-      width: auto;
       background-color: $brand-color;
       animation-name: navbar-dropdown-menu;
       -webkit-animation-name: navbar-dropdown-menu;
@@ -59,8 +59,9 @@
       transform-origin: 50% 0%;
       -ms-transform-origin: 50% 0%;
       -webkit-transform-origin: 50% 0%;
-      &:hover { display: block }
-      a {
+      flex-direction: column;
+      &-item {
+        font-size: 0.8em;
         color: white;
         text-decoration: none;
         &:hover {
@@ -70,27 +71,16 @@
         }
       }
     }
-    &:hover > .navbar-dropdown-menu {
-      display: inline-block;
-    }
+    &:hover > .navbar-dropdown-menu { display: flex }
   }
 }
 
 
 @keyframes navbar-dropdown-menu {
-  0% {
-    transform: scaleY(0.1);
-  }
-  100% {
-    transform: scaleY(1);
-  }
+  0% { transform: scaleY(0.1) }
+  100% { transform: scaleY(1) }
 }
-
 @-webkit-keyframes navbar-dropdown-menu {
-  0% {
-    -webkit-transform: scaleY(0.1);
-  }
-  100% {
-    -webkit-transform: scaleY(1);
-  }
+  0% { -webkit-transform: scaleY(0.1) }
+  100% { -webkit-transform: scaleY(1) }
 }
