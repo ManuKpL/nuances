@@ -16,8 +16,11 @@
         </div>
         <hr>
         <div class="query-item query-link">
+          <%= link_to edit_query_path(query) do %>
+            <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
+          <% end %>
           <%= link_to query_path(query), method: :delete do %>
-            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <i class="fa fa-trash-o" aria-hidden="true" id="delete"></i>
           <% end %>
         </div>
       </div>

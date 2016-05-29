@@ -2,12 +2,16 @@
   &-container {
     display: flex;
     align-items: center;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    padding: 0 10px;
     hr {
       height: 30px;
       width: 0;
       border-right: 1px solid $brand-gray;
       margin: 0 10px;
     }
+    &:hover { background-color: rgba(81, 148, 236, 0.1) }
   }
   &-item {
     padding: 10px 5px;
@@ -28,8 +32,10 @@
   }
   &-link {
     flex: 1 0 auto;
-    a {
-      color: $gray-dark;
-    }
+    display: flex;
+    flex-direction: column;
+    a { color: $gray-dark }
+    #delete:hover { color: $red }
+    #edit:hover { color: $blue }
   }
 }
