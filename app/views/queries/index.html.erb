@@ -1,41 +1,43 @@
-<div class="query-banner page-banner">
+<div class="query-banner-index page-banner">
   <div class="page-banner-title">
     <h1>Questions enregistrées</h1>
     <% total = @queries.length %>
     <% if total > 1 %>
-      <p><%= total %> trouvées</p>
+      <p><%= total %> questions trouvées</p>
     <% elsif total == 0 %>
-      <p>Aucune trouvée</p>
+      <p>Aucune question trouvée</p>
     <% else %>
-      <p><%= total %> trouvée</p>
+      <p><%= total %> question trouvée</p>
     <% end %>
   </div>
 </div>
 <div class="container padded">
-
-  <% @queries.each do |query| %>
-    <div class="query-container">
-      <div class="query-item query-id">
-        <%= query.id %>
+  <% @themes.each do |theme| %>
+    <h2><%= theme.name %></h2>
+    <% theme.queries.each do |query| %>
+      <div class="query-container">
+        <div class="query-item query-id">
+          <%= query.id %>
+        </div>
+        <hr>
+        <div class="query-item query-content">
+          <%= query.content %>
+        </div>
+        <hr>
+        <div class="query-item query-description">
+          <%= query.description %>
+        </div>
+        <hr>
+        <div class="query-item query-link">
+          <%= link_to edit_query_path(query) do %>
+            <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
+          <% end %>
+          <%= link_to query_path(query), method: :delete do %>
+            <i class="fa fa-trash-o" aria-hidden="true" id="delete"></i>
+          <% end %>
+        </div>
       </div>
-      <hr>
-      <div class="query-item query-content">
-        <%= query.content %>
-      </div>
-      <hr>
-      <div class="query-item query-description">
-        <%= query.description %>
-      </div>
-      <hr>
-      <div class="query-item query-link">
-        <%= link_to edit_query_path(query) do %>
-          <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
-        <% end %>
-        <%= link_to query_path(query), method: :delete do %>
-          <i class="fa fa-trash-o" aria-hidden="true" id="delete"></i>
-        <% end %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 
 </div>
