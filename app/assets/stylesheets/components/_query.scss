@@ -1,15 +1,17 @@
 .query {
   &-title {
     position: relative;
-    display: flex;
-    align-items: baseline;
+    margin-bottom: 40px;
     p {
       position: absolute;
-      padding-left: 10px;
+      padding-left: 20px;
       font-weight: 100;
-      bottom: -10px;
+      bottom: -35px;
     }
-    &-small p { bottom: -20px }
+    &-small {
+      margin-bottom: 0;
+      p { bottom: -20px }
+    }
   }
   &-banner-index { background-image: url(notebook) }
   &-container {
@@ -18,7 +20,7 @@
     border-radius: 3px;
     transition: background-color 0.3s ease;
     padding: 0 10px;
-    margin: 10px 0;
+    margin: 5px 0;
     hr {
       height: 30px;
       width: 0;
