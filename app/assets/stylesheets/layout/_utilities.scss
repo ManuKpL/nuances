@@ -18,8 +18,10 @@
   left: 0;
   height: 100vh;
   width: 100%;
-  background-size: cover;
-  background-position: center;
+  &-cover {
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .bg-black {

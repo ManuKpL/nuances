@@ -1,14 +1,15 @@
 .all-form {
   &-content {
-    padding: 40px 100px;
-    border-radius: 2px;
-    background-color: rgba(250,250,250,0.7);
     width: 90vw;
     max-width: 800px;
+    &-bg {
+      padding: 40px 100px;
+      border-radius: 2px;
+      background-color: rgba(250,250,250,0.7);
+    }
   }
   &-layout {
     &-login { background-image: url(banner) }
-    &-new { background-image: url(notepad) }
-    &-edit { background-image: url(keyboard) }
+    &-new { background-image: url(linedpaper) }
   }
 }
