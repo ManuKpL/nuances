@@ -32,10 +32,10 @@
           <p><%= count %> question</p>
         <% end %>
       </div>
-      <% queries.each do |query| %>
+      <% queries.each_with_index do |query, index| %>
         <div class="query-container">
           <div class="query-item query-id">
-            <%= query.id %>
+            <%= index + 1 %>
           </div>
           <hr>
           <div class="query-item query-content">

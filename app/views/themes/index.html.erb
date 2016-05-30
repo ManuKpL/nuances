@@ -21,10 +21,10 @@
     </div>
   <% end %>
   <h2>Liste des thèmes</h2>
-  <% @themes.each do |theme| %>
+  <% @themes.each_with_index do |theme, index| %>
     <div class="query-container">
       <div class="query-item query-id">
-        <%= theme.id %>
+        <%= index + 1 %>
       </div>
       <hr>
       <div class="query-item query-name query-title query-title-small">
