@@ -12,24 +12,14 @@
   </div>
 </div>
 <div class="container round-button-container padded">
-  <div class="round-button round-button-right bg-green flex-center">
-    <p>+</p>
-    <div class="round-button-new-element bg-green">
-      <%= link_to 'Ajouter une question', new_query_path, class: 'round-button-new-element-link' %>
+  <%= link_to new_query_path, class: 'round-button-new-element-link' do %>
+    <div class="round-button round-button-center round-button-right bg-green flex-center">
+      <p>+</p>
+      <div class="round-button-new-element bg-green">
+        Ajouter une question
+      </div>
     </div>
-  </div>
-  <div class="round-button round-button-middle bg-red flex-center">
-    <p>+</p>
-    <div class="round-button-new-element bg-red">
-      <%= link_to 'Ajouter un choix', '#', class: 'round-button-new-element-link' %>
-    </div>
-  </div>
-  <div class="round-button round-button-left bg-blue flex-center">
-    <p>+</p>
-    <div class="round-button-new-element bg-blue">
-      <%= link_to 'Ajouter un thème', '#', class: 'round-button-new-element-link' %>
-    </div>
-  </div>
+  <% end %>
   <% @themes.each do |theme| %>
     <h2><%= theme.name %></h2>
     <% theme.queries.each do |query| %>
