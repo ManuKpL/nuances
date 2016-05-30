@@ -17,18 +17,30 @@ class QueriesController < ApplicationController
 
   def create
     @query = Query.new(query_params)
-    @query.save ? redirect_to queries_path ; render :new
+    if @query.save
+      redirect_to queries_path
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @query.update(query_params) ? redirect_to queries_path : render :edit
+    if @query.update(query_params)
+      redirect_to queries_path
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @query.destroy ? redirect_to queries_path : redirect_to queries_path, alert: 'Suppression impossible'
+    if @query.destroy
+      redirect_to queries_path
+    else
+      redirect_to queries_path, alert: 'Suppression impossible'
+    end
   end
 
   private

@@ -16,18 +16,30 @@ class ThemesController < ApplicationController
 
   def create
     @theme = Theme.new(theme_params)
-    @theme.save ? redirect to themes_path : render :new
+    if @theme.save
+      redirect to themes_path
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @theme.update(theme_params) ? redirect_to themes_path : render :edit
+    if @theme.update(theme_params)
+      redirect_to themes_path
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @theme.destroy ? redirect_to themes_path : redirect_to themes_path, alert: 'Suppression impossible'
+    if @theme.destroy
+      redirect_to themes_path
+    else
+      redirect_to themes_path, alert: 'Suppression impossible'
+    end
   end
 
   private
