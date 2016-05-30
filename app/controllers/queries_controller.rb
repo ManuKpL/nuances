@@ -1,6 +1,7 @@
 class QueriesController < ApplicationController
 
   before_action :find_query, only: [:show, :edit, :update, :destroy]
+  before_action :verify_admin_rights
 
   def show
   end
@@ -47,6 +48,10 @@ class QueriesController < ApplicationController
 
   def query_params
     params.require(:query).permit(:theme_id, :content, :description, :see_more)
+  end
+
+  def verify_admin_rights
+    redirect_to root_path, alert: "Vous n'avez pas les droits pour accéder à cette page" unless current_user.admin
   end
 
 end
