@@ -1,6 +1,9 @@
 class QueriesController < ApplicationController
 
-  before_action :find_query, only: [:destroy, :edit, :update]
+  before_action :find_query, only: [:show, :edit, :update, :destroy]
+
+  def show
+  end
 
   def index
     @queries = Query.all

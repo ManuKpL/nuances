@@ -36,7 +36,10 @@
           <%= query.description %>
         </div>
         <hr>
-        <div class="query-item query-link">
+        <div class="query-item query-actions">
+          <%= link_to query_path(query) do %>
+            <i class="fa fa-eye" aria-hidden="true" id="show"></i>
+          <% end %>
           <%= link_to edit_query_path(query) do %>
             <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
           <% end %>

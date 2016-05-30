@@ -6,6 +6,7 @@
     border-radius: 3px;
     transition: background-color 0.3s ease;
     padding: 0 10px;
+    margin: 10px 0;
     hr {
       height: 30px;
       width: 0;
@@ -31,11 +32,13 @@
     flex: 6 1 auto;
     font-size: 14px;
   }
-  &-link {
+  &-actions {
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
+    font-size: 16px;
     a { color: $gray-dark }
+    #show:hover { color: $green }
     #delete:hover { color: $red }
     #edit:hover { color: $blue }
   }
