@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
+  get 'themes/show'
+
+  get 'themes/indec'
+
+  get 'themes/new'
+
+  get 'themes/create'
+
+  get 'themes/edit'
+
+  get 'themes/update'
+
+  get 'themes/destroy'
+
   ActiveAdmin.routes(self)
   devise_for :users
-  resources :queries
+  resources :queries, :themes
   root to: 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -8,7 +8,7 @@ class QueriesController < ApplicationController
 
   def index
     @queries = Query.all
-    @themes = Theme.all
+    @themes = Theme.order(:name)
   end
 
   def new
@@ -17,27 +17,18 @@ class QueriesController < ApplicationController
 
   def create
     @query = Query.new(query_params)
-    if @query.save
-      redirect_to queries_path
-    else
-      render :edit
-    end
+    @query.save ? redirect_to queries_path ; render :new
   end
 
   def edit
   end
 
   def update
-    if @query.update(query_params)
-      redirect_to queries_path
-    else
-      render :edit
-    end
+    @query.update(query_params) ? redirect_to queries_path : render :edit
   end
 
   def destroy
-    @query.destroy
-    redirect_to queries_path
+    @query.destroy ? redirect_to queries_path : redirect_to queries_path, alert: 'Suppression impossible'
   end
 
   private
