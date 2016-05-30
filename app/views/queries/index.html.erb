@@ -21,33 +21,44 @@
     </div>
   <% end %>
   <% @themes.each do |theme| %>
-    <h2><%= theme.name %></h2>
-    <% theme.queries.each do |query| %>
-      <div class="query-container">
-        <div class="query-item query-id">
-          <%= query.id %>
-        </div>
-        <hr>
-        <div class="query-item query-content">
-          <%= query.content %>
-        </div>
-        <hr>
-        <div class="query-item query-description">
-          <%= query.description %>
-        </div>
-        <hr>
-        <div class="query-item query-actions">
-          <%= link_to query_path(query) do %>
-            <i class="fa fa-eye" aria-hidden="true" id="show"></i>
-          <% end %>
-          <%= link_to edit_query_path(query) do %>
-            <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
-          <% end %>
-          <%= link_to query_path(query), method: :delete do %>
-            <i class="fa fa-trash-o" aria-hidden="true" id="delete"></i>
-          <% end %>
-        </div>
+    <% queries = theme.queries %>
+    <% unless queries.empty? %>
+      <div class="query-title">
+        <h2><%= theme.name %></h2>
+        <% count = queries.count %>
+        <% if count > 1 %>
+          <p><%= count %> questions</p>
+        <% else %>
+          <p><%= count %> question</p>
+        <% end %>
       </div>
+      <% queries.each do |query| %>
+        <div class="query-container">
+          <div class="query-item query-id">
+            <%= query.id %>
+          </div>
+          <hr>
+          <div class="query-item query-content">
+            <%= query.content %>
+          </div>
+          <hr>
+          <div class="query-item query-description">
+            <%= query.description %>
+          </div>
+          <hr>
+          <div class="query-item query-actions">
+            <%= link_to query_path(query) do %>
+              <i class="fa fa-eye" aria-hidden="true" id="show"></i>
+            <% end %>
+            <%= link_to edit_query_path(query) do %>
+              <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
+            <% end %>
+            <%= link_to query_path(query), method: :delete do %>
+              <i class="fa fa-trash-o" aria-hidden="true" id="delete"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 
