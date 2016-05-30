@@ -27,8 +27,14 @@
         <%= theme.id %>
       </div>
       <hr>
-      <div class="query-item query-name">
+      <div class="query-item query-name query-title query-title-small">
         <%= theme.name %>
+        <% count = theme.queries.count %>
+        <% if count > 1 %>
+          <p><%= count %> questions</p>
+        <% else %>
+          <p><%= count %> question</p>
+        <% end %>
       </div>
       <hr>
       <div class="query-item query-description">
