@@ -2,6 +2,7 @@ class ThemesController < ApplicationController
 
   before_action :find_theme, only: [:show, :edit, :update, :destroy]
   before_action :verify_admin_rights
+  before_action :set_reminder, only: :new
 
   def show
   end
@@ -50,5 +51,9 @@ class ThemesController < ApplicationController
 
   def theme_params
     params.require(:theme).permit(:name, :description)
+  end
+
+  def set_reminder
+    @reminder = Theme.order(:name).map(&:name)
   end
 end

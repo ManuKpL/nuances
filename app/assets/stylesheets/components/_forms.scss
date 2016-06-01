@@ -2,7 +2,9 @@
   &-content {
     width: 90vw;
     max-width: 800px;
+    margin-bottom: 50px;
     textarea { min-height: 150px }
+    h1 { font-weight: 900; margin-bottom: 0.5em }
     &-bg {
       padding: 40px 100px;
       border-radius: 2px;
@@ -12,5 +14,8 @@
   &-layout {
     &-login { background-image: url(banner) }
     &-new { background-image: url(linedpaper) }
+  }
+  &-reminder {
+    margin-bottom: 1em;
   }
 }
