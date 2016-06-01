@@ -6,13 +6,21 @@
     <% if total > 1 %>
       <p><%= total %> questions trouvées</p>
     <% elsif total == 0 %>
-      <p>Aucune question trouvée</p>
+      <p>Aucun question trouvée</p>
     <% else %>
       <p><%= total %> question trouvée</p>
     <% end %>
   </div>
 </div>
 <div class="container round-button-container padded">
+  <%= link_to edit_theme_path(@theme), class: 'round-button-new-element-link' do %>
+    <div class="round-button round-button-top round-button-right bg-blue flex-center">
+      <p class='flex-center'><i class="fa fa-cog" aria-hidden="true"></i></p>
+      <div class="round-button-new-element bg-blue">
+        Modifier le thème
+      </div>
+    </div>
+  <% end %>
   <%= link_to theme_path(@theme), method: :delete, class: 'round-button-new-element-link' do %>
     <div class="round-button round-button-center round-button-right bg-red flex-center">
       <p class='flex-center'><i class="fa fa-minus" aria-hidden="true"></i></p>
@@ -29,14 +37,12 @@
       </div>
     </div>
   <% end %>
-  <% if queries.empty? %>
-    <div class="query-title">
-      <p class='query-title-description'>Aucune question enregistrée</p>
-    </div>
-  <% else %>
     <div class="query-title">
       <p class='query-title-description'><%= @theme.description %></p>
     </div>
+  <% if queries.empty? %>
+    <p class='query-title-description'>Aucune question enregistrée</p>
+  <% else %>
     <% queries.each_with_index do |query, index| %>
       <div class="query-container">
         <div class="query-item query-id">

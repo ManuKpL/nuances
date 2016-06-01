@@ -18,7 +18,7 @@ class ThemesController < ApplicationController
   def create
     @theme = Theme.new(theme_params)
     if @theme.save
-      redirect_to themes_path
+      redirect_to theme_path(@theme)
     else
       render :new
     end
@@ -29,7 +29,7 @@ class ThemesController < ApplicationController
 
   def update
     if @theme.update(theme_params)
-      redirect_to themes_path
+      redirect_to theme_path(@theme)
     else
       render :edit
     end
