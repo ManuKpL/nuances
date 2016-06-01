@@ -13,14 +13,6 @@
   </div>
 </div>
 <div class="container round-button-container padded">
-  <%= link_to new_theme_path, class: 'round-button-new-element-link' do %>
-    <div class="round-button round-button-top round-button-right bg-blue flex-center">
-      <p>+</p>
-      <div class="round-button-new-element bg-blue">
-        Ajouter un thème
-      </div>
-    </div>
-  <% end %>
   <%= link_to theme_path(@theme), method: :delete, class: 'round-button-new-element-link' do %>
     <div class="round-button round-button-center round-button-right bg-red flex-center">
       <p class='flex-center'><i class="fa fa-minus" aria-hidden="true"></i></p>
