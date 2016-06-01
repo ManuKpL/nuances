@@ -2,10 +2,24 @@
   &-title {
     position: relative;
     margin-bottom: 40px;
-    p {
+    p { font-weight: 100; padding-left: 20px }
+    &-description {
+      padding: 0 150px 0 50px;
+      text-align: justify;
+      position: relative;
+      &::before {
+        position: absolute;
+        content: "\"";
+        z-index: -1;
+        color: $gray-lighter;
+        font-family: 'Helvetica';
+        font-size: 200px;
+        top: -80px;
+        left: 20px;
+      }
+    }
+    #subtitle {
       position: absolute;
-      padding-left: 20px;
-      font-weight: 100;
       bottom: -35px;
     }
     &-small {
@@ -13,7 +27,10 @@
       p { bottom: -20px }
     }
   }
-  &-banner-index { background-image: url(notebook) }
+  &-banner {
+    &-index { background-image: url(notebook) }
+    &-show { background-image: url(notepad) }
+  }
   &-container {
     display: flex;
     align-items: center;

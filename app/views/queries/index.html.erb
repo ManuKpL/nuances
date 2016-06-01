@@ -27,9 +27,9 @@
         <h2><%= theme.name %></h2>
         <% count = queries.count %>
         <% if count > 1 %>
-          <p><%= count %> questions</p>
+          <p id='subtitle'><%= count %> questions</p>
         <% else %>
-          <p><%= count %> question</p>
+          <p id='subtitle'><%= count %> question</p>
         <% end %>
       </div>
       <% queries.each_with_index do |query, index| %>

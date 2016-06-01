@@ -9,6 +9,7 @@
   p {
     margin: 0;
     z-index: 1;
+    i { font-size: 25px; margin-top: 5px }
   }
   &-container { position: relative }
   &:hover > p {
