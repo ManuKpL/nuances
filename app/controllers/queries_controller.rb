@@ -1,7 +1,7 @@
 class QueriesController < ApplicationController
 
   before_action :find_query, only: [:show, :edit, :update, :destroy]
-  before_action :verify_admin_rights
+  before_action :verify_editor_rights
 
   def show
   end

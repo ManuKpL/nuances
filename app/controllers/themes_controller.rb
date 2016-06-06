@@ -1,7 +1,7 @@
 class ThemesController < ApplicationController
 
   before_action :find_theme, only: [:show, :edit, :update, :destroy]
-  before_action :verify_admin_rights
+  before_action :verify_editor_rights
   before_action :set_reminder, only: :new
 
   def show

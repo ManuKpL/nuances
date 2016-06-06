@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def verify_admin_rights
-    redirect_to root_path, alert: "Vous n'avez pas les droits pour accéder à cette page" unless current_user.admin
+  def verify_editor_rights
+    redirect_to root_path, alert: "Vous n'avez pas les droits pour accéder à cette page" unless current_user.editor
   end
 end
