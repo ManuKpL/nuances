@@ -9,8 +9,9 @@
   p {
     margin: 0;
     z-index: 1;
-    i { font-size: 25px; line-height: 25px }
-    .fa-minus { margin-top: 5px }
+    line-height: 0;
+    i { font-size: 25px; margin-top: 1px }
+    .fa-minus, .fa-plus { margin-top: 3px }
   }
   &-container { position: relative }
   &:hover > p {

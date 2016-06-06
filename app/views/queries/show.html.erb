@@ -15,7 +15,7 @@
 <div class="container round-button-container padded">
   <%= link_to query_path(@query), method: :delete, class: 'round-button-new-element-link' do %>
     <div class="round-button round-button-center round-button-right bg-red flex-center">
-      <p class='flex-center'><i class="fa fa-minus" aria-hidden="true"></i></p>
+      <p><i class="fa fa-minus" aria-hidden="true"></i></p>
       <div class="round-button-new-element bg-red">
         Supprimer la question
       </div>
@@ -23,18 +23,22 @@
   <% end %>
   <%= link_to '#', class: 'round-button-new-element-link' do %>
     <div class="round-button round-button-bottom round-button-right bg-green flex-center">
-      <p>+</p>
+      <p><i class="fa fa-plus" aria-hidden="true"></i></p>
       <div class="round-button-new-element bg-green">
         Ajouter un choix
       </div>
     </div>
   <% end %>
     <div class="query-title">
-      <p class='query-title-description'><%= @query.description %></p>
+      <% if @query.description.length > 0 %>
+        <p class='query-title-description'><%= @query.description %></p>
+      <% else %>
+        <p class="query-title-description">Aucune description fournie</p>
+      <% end %>
       <p class='query-title-description'>En savoir plus: <%= link_to @query.see_more, @query.see_more %></p>
     </div>
   <% if choices.empty? %>
-    <p class='query-title-description'>Aucun choix enregistré</p>
+    <p>Aucun choix enregistré</p>
   <% else %>
     <% choices.each_with_index do |choice, index| %>
       <div class="query-container">
