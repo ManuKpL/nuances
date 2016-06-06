@@ -1,11 +1,16 @@
 <div class="navbar">
   <div class="container navbar-container">
-    <div class="navbar-elements"></div>
+    <div class="navbar-elements">
+      <%= link_to 'Me positionner', new_answer_path, class: "navbar-item" %>
+      <%= link_to 'Communauté', '#', class: "navbar-item" %>
+      <hr>
+    </div>
     <div class="navbar-title">
       <%= link_to 'Nuances', root_path, class: "navbar-item" %>
     </div>
     <div class="navbar-elements">
       <hr>
+      <%= link_to 'Mon Profil', '#', class: "navbar-item" %>
       <% if user_signed_in? %>
         <% if current_user.editor %>
           <div class="navbar-dropdown navbar-item">
@@ -17,9 +22,9 @@
             </div>
           </div>
         <% end %>
-        <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class: "navbar-item" %>
+        <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: "navbar-item" %>
       <% else %>
-        <%= link_to 'Se connecter', new_user_session_path, class: "navbar-item" %>
+        <%= link_to 'Me connecter', new_user_session_path, class: "navbar-item" %>
       <% end %>
     </div>
   </div>
