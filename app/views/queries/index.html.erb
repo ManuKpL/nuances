@@ -38,8 +38,18 @@
             <%= index + 1 %>
           </div>
           <hr>
-          <div class="query-item query-content">
+          <div class="query-item query-content query-title query-title-small">
             <%= query.content %>
+            <% status =  %>
+            <p>
+              <%= query.choices.count %> choix
+               -
+              <% if query.validated %>
+                Validée <i class="fa fa-check-circle blue-text" aria-hidden="true"></i>
+              <% else %>
+                En attente <i class="fa fa-times-circle red-text" aria-hidden="true"></i>
+              <% end %>
+            </p>
           </div>
           <hr>
           <div class="query-item query-description">

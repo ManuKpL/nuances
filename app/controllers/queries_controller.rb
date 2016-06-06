@@ -7,7 +7,7 @@ class QueriesController < ApplicationController
   end
 
   def index
-    @queries = Query.all
+    @queries = Query.order(:content)
     @themes = Theme.order(:name)
   end
 

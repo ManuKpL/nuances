@@ -6,13 +6,21 @@
     <% if total > 1 %>
       <p><%= total %> choixs trouvés</p>
     <% elsif total == 0 %>
-      <p>Aucune choix trouvé</p>
+      <p>Aucun choix trouvé</p>
     <% else %>
       <p><%= total %> choix trouvé</p>
     <% end %>
   </div>
 </div>
 <div class="container round-button-container padded">
+  <%= link_to edit_query_path(@query), class: 'round-button-new-element-link' do %>
+    <div class="round-button round-button-top round-button-right bg-blue flex-center">
+      <p><i class="fa fa-cog" aria-hidden="true"></i></p>
+      <div class="round-button-new-element bg-blue">
+        Modifier la question
+      </div>
+    </div>
+  <% end %>
   <%= link_to query_path(@query), method: :delete, class: 'round-button-new-element-link' do %>
     <div class="round-button round-button-center round-button-right bg-red flex-center">
       <p><i class="fa fa-minus" aria-hidden="true"></i></p>
@@ -36,6 +44,11 @@
         <p class="query-title-description">Aucune description fournie</p>
       <% end %>
       <p class='query-title-description'>En savoir plus: <%= link_to @query.see_more, @query.see_more %></p>
+      <% if @query.validated %>
+        <p class='query-title-description'>Question validée <i class="fa fa-check-circle blue-text" aria-hidden="true"></i></p>
+      <% else %>
+        <p class='query-title-description'>En attente de validation <i class="fa fa-times-circle red-text" aria-hidden="true"></i></p>
+      <% end %>
     </div>
   <% if choices.empty? %>
     <p>Aucun choix enregistré</p>

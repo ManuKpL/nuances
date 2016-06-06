@@ -24,34 +24,18 @@
   }
 }
 
-.bg-black {
-  background: #4a4a4a;
-  color: white;
-}
-.bg-grey {
-  background: $brand-gray;
-  color: white;
-}
-.bg-red {
-  background: $red;
-  color: white;
-}
-.bg-blue {
-  background: $blue;
-  color: white;
-}
-.bg-light-blue {
-  background: $light-blue;
-  color: white;
-}
-.bg-dark-blue {
-  background: $brand-color;
-  color: white;
-}
-.bg-green {
-  background: $green;
-  color: white;
-}
+.bg-black      { background: #4a4a4a;      color: white }
+.bg-grey       { background: $brand-gray;  color: white }
+.bg-red        { background: $red;         color: white }
+.bg-blue       { background: $blue;        color: white }
+.bg-light-blue { background: $light-blue;  color: white }
+.bg-dark-blue  { background: $brand-color; color: white }
+.bg-green      { background: $green;       color: white }
+
+// Color
+
+ .blue-text { color: $blue }
+ .red-text { color: $red }
 
 // Positions
 .flex-center {

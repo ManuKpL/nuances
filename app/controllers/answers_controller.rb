@@ -27,7 +27,7 @@ class AnswersController < ApplicationController
   private
 
   def set_query
-    queries = Query.all.map { |query| query unless query.users.include?(current_user) }
+    queries = Query.where(validated: true).map { |query| query unless query.users.include?(current_user) }
     @query = queries.sample
   end
 
