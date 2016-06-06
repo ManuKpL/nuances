@@ -1,4 +1,19 @@
-<div class="bg-full all-form-layout-new flex-center">
-  <h1>Answers#new</h1>
-  <%= @query %>
+<div class="padded"></div>
+<div class="padded bg-blue">
+  <div class="container">
+    <h1><%= @query.content %></h1>
+  </div>
 </div>
+<div class="container">
+  <p class="padded"><%= @query.description %></p>
+  <div class="row">
+    <% @query.choices.each do |choice| %>
+      <div class="col-xs-6">
+        <div class="padded bg-red flex-center">
+          <h2><%= choice.content %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="padded"></div>
