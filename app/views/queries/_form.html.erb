@@ -8,6 +8,7 @@
       <%= f.input :content %>
       <%= f.input :description %>
       <%= f.input :see_more %>
+      <%= f.input :validated if params[:action] == 'edit' %>
     </div>
 
     <div class="form-actions">

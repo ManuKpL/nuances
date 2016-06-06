@@ -50,6 +50,6 @@ class QueriesController < ApplicationController
   end
 
   def query_params
-    params.require(:query).permit(:theme_id, :content, :description, :see_more)
+    params.require(:query).permit(:theme_id, :content, :description, :see_more, :validated)
   end
 end
