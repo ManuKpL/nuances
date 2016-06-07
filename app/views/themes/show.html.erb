@@ -1,4 +1,5 @@
-<div class="query-banner-show page-banner">
+<!-- BANNER -->
+<div class="page-banner page-banner-notepad">
   <div class="page-banner-title">
     <h1><%= @theme.name %></h1>
     <% queries = @theme.queries %>
@@ -12,7 +13,11 @@
     <% end %>
   </div>
 </div>
+<!-- BANNER -->
+
+<!-- BODY -->
 <div class="container round-button-container padded">
+  <!-- ACTION BUTTONS -->
   <%= link_to edit_theme_path(@theme), class: 'round-button-new-element-link' do %>
     <div class="round-button round-button-top round-button-right bg-blue flex-center">
       <p><i class="fa fa-cog" aria-hidden="true"></i></p>
@@ -37,43 +42,51 @@
       </div>
     </div>
   <% end %>
-    <div class="query-title">
-      <% if @theme.description.length > 0 %>
-        <p class='query-title-description'><%= @theme.description %></p>
-      <% else %>
-        <p class="query-title-description">Aucune description fournie</p>
-      <% end %>
-    </div>
-  <% if queries.empty? %>
-    <p>Aucune question enregistrée</p>
-  <% else %>
-    <% queries.each_with_index do |query, index| %>
-      <div class="query-container">
-        <div class="query-item query-id">
-          <%= index + 1 %>
-        </div>
-        <hr>
-        <div class="query-item query-content">
-          <%= query.content %>
-        </div>
-        <hr>
-        <div class="query-item query-description">
-          <%= query.description %>
-        </div>
-        <hr>
-        <div class="query-item query-actions">
-          <%= link_to query_path(query) do %>
-            <i class="fa fa-eye" aria-hidden="true" id="show"></i>
-          <% end %>
-          <%= link_to edit_query_path(query) do %>
-            <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
-          <% end %>
-          <%= link_to query_path(query), method: :delete do %>
-            <i class="fa fa-trash-o" aria-hidden="true" id="delete"></i>
-          <% end %>
-        </div>
-      </div>
+  <!-- ACTION BUTTONS -->
+
+  <div class="section-title">
+    <% if @theme.description.length > 0 %>
+      <p class='section-title-description'><%= @theme.description %></p>
+    <% else %>
+      <p class="section-title-description">Aucune description fournie</p>
     <% end %>
-  <% end %>
+  </div>
+
+  <div class="padded-sm">
+    <% if queries.empty? %> <!-- check if theme has related queries -->
+      <p>Aucune question enregistrée</p>
+    <% else %>
+      <% queries.each_with_index do |query, index| %>
+        <!-- QUERY INSTANCE -->
+        <div class="list-instance-container">
+          <div class="list-instance-item list-instance-id">
+            <%= index + 1 %>
+          </div>
+          <hr>
+          <div class="list-instance-item list-instance-content">
+            <%= query.content %>
+          </div>
+          <hr>
+          <div class="list-instance-item list-instance-description">
+            <%= query.description %>
+          </div>
+          <hr>
+          <div class="list-instance-item list-instance-actions">
+            <%= link_to query_path(query) do %>
+              <i class="fa fa-eye" aria-hidden="true" id="show"></i>
+            <% end %>
+            <%= link_to edit_query_path(query) do %>
+              <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
+            <% end %>
+            <%= link_to query_path(query), method: :delete do %>
+              <i class="fa fa-trash-o" aria-hidden="true" id="delete"></i>
+            <% end %>
+          </div>
+        </div>
+        <!-- QUERY INSTANCE -->
+      <% end %>
+    <% end %>
+  </div>
 
 </div>
+<!-- BODY -->

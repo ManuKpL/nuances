@@ -1,35 +1,4 @@
-.query {
-  &-title {
-    position: relative;
-    p { font-weight: 100; padding-left: 20px }
-    &-description {
-      padding: 0 150px 0 50px;
-      text-align: justify;
-      position: relative;
-      &:first-of-type::before {
-        position: absolute;
-        content: "\"";
-        z-index: -1;
-        color: $gray-lighter;
-        font-family: 'Helvetica';
-        font-size: 200px;
-        top: -80px;
-        left: 20px;
-      }
-    }
-    #subtitle {
-      position: absolute;
-      bottom: -35px;
-    }
-    &-small {
-      margin-bottom: 0;
-      p { bottom: -20px }
-    }
-  }
-  &-banner {
-    &-index { background-image: url(notebook) }
-    &-show { background-image: url(notepad) }
-  }
+.list-instance {
   &-container {
     display: flex;
     align-items: center;
