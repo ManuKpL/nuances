@@ -29,27 +29,38 @@
       </div>
     </div>
   <% end %>
-  <%= link_to new_choice_path, class: 'round-button-new-element-link' do %>
-    <div class="round-button round-button-bottom round-button-right bg-green flex-center">
-      <p><i class="fa fa-plus" aria-hidden="true"></i></p>
-      <div class="round-button-new-element bg-green">
-        Ajouter un choix
+  <% if @query.validated %>
+    <%= link_to query_path(@query, query: { validated: false }), method: :patch, class: 'round-button-new-element-link' do %>
+      <div class="round-button round-button-bottom round-button-right bg-red flex-center">
+        <p><i class="fa fa-ban" aria-hidden="true"></i></p>
+        <div class="round-button-new-element bg-red">
+          Invalider la question
+        </div>
       </div>
-    </div>
+    <% end %>
+  <% elsif @query.choices.count >= 2 %>
+    <%= link_to query_path(@query, query: { validated: true }), method: :patch, class: 'round-button-new-element-link' do %>
+      <div class="round-button round-button-bottom round-button-right bg-green flex-center">
+        <p><i class="fa fa-check" aria-hidden="true"></i></p>
+        <div class="round-button-new-element bg-green">
+          Valider la question
+        </div>
+      </div>
+    <% end %>
   <% end %>
-    <div class="query-title">
-      <% if @query.description.length > 0 %>
-        <p class='query-title-description'><%= @query.description %></p>
-      <% else %>
-        <p class="query-title-description">Aucune description fournie</p>
-      <% end %>
-      <p class='query-title-description truncated'>En savoir plus: <%= link_to @query.see_more, @query.see_more %></p>
-    </div>
+  <div class="query-title">
+    <% if @query.description.length > 0 %>
+      <p class='query-title-description'><%= @query.description %></p>
+    <% else %>
+      <p class="query-title-description">Aucune description fournie</p>
+    <% end %>
+    <p class='query-title-description truncated'>En savoir plus: <%= link_to @query.see_more, @query.see_more %></p>
+  </div>
 </div>
 <% if @query.validated %>
-  <p class='text-center bg-blue padded-sm'>Question validée <i class="fa fa-check-circle" aria-hidden="true"></i></p>
+  <p class='text-center bg-green padded-sm'>Question validée <i class="fa fa-check-circle" aria-hidden="true"></i></p>
 <% else %>
-  <p class='text-center bg-red padded-sm'>En attente de validation <i class="fa fa-times-circle" aria-hidden="true"></i></p>
+  <p class='text-center bg-red padded-sm'>En attente de validation <i class="fa fa-times-circle" aria-hidden="true"></i><br>(2 choix minimum pour pouvoir valider)</p>
 <% end %>
 <div class="container padded">
   <% if choices.empty? %>

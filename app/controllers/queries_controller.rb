@@ -19,7 +19,7 @@ class QueriesController < ApplicationController
   def create
     @query = Query.new(query_params)
     if @query.save
-      redirect_to queries_path
+      redirect_to query_path(@query)
     else
       render :new
     end
@@ -30,7 +30,7 @@ class QueriesController < ApplicationController
 
   def update
     if @query.update(query_params)
-      redirect_to queries_path
+      redirect_to query_path(@query)
     else
       render :edit
     end
