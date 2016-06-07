@@ -45,9 +45,9 @@
               <%= query.choices.count %> choix
                -
               <% if query.validated %>
-                Validée <i class="fa fa-check-circle blue-text" aria-hidden="true"></i>
+                <span class="blue-text">Validée</span> <i class="fa fa-check-circle blue-text" aria-hidden="true"></i>
               <% else %>
-                En attente <i class="fa fa-times-circle red-text" aria-hidden="true"></i>
+                <span class="red-text">En attente</span> <i class="fa fa-times-circle red-text" aria-hidden="true"></i>
               <% end %>
             </p>
           </div>

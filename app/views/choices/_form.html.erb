@@ -1,14 +1,11 @@
 <div class="all-form-content">
   <h1 class="text-center"><%= title %></h1>
 
-  <%= simple_form_for(@query) do |f| %>
+  <%= simple_form_for(@choice) do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs">
-      <%= f.association :theme, :include_blank => false %>
+      <%= f.association :query, :include_blank => false %>
       <%= f.input :content %>
-      <%= f.input :description %>
-      <%= f.input :see_more %>
-      <%= f.input :validated if params[:action] == 'edit' && @query.choices.count >= 2 %>
     </div>
 
     <div class="form-actions">

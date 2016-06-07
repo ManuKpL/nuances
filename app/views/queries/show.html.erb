@@ -29,7 +29,7 @@
       </div>
     </div>
   <% end %>
-  <%= link_to '#', class: 'round-button-new-element-link' do %>
+  <%= link_to new_choice_path, class: 'round-button-new-element-link' do %>
     <div class="round-button round-button-bottom round-button-right bg-green flex-center">
       <p><i class="fa fa-plus" aria-hidden="true"></i></p>
       <div class="round-button-new-element bg-green">
@@ -45,9 +45,9 @@
       <% end %>
       <p class='query-title-description'>En savoir plus: <%= link_to @query.see_more, @query.see_more %></p>
       <% if @query.validated %>
-        <p class='query-title-description'>Question validée <i class="fa fa-check-circle blue-text" aria-hidden="true"></i></p>
+        <p class='text-center blue-text'>Question validée <i class="fa fa-check-circle" aria-hidden="true"></i></p>
       <% else %>
-        <p class='query-title-description'>En attente de validation <i class="fa fa-times-circle red-text" aria-hidden="true"></i></p>
+        <p class='text-center red-text'>En attente de validation <i class="fa fa-times-circle" aria-hidden="true"></i></p>
       <% end %>
     </div>
   <% if choices.empty? %>
@@ -64,13 +64,10 @@
         </div>
         <hr>
         <div class="query-item query-actions">
-          <%= link_to '#' do %>
-            <i class="fa fa-eye" aria-hidden="true" id="show"></i>
-          <% end %>
-          <%= link_to '#' do %>
+          <%= link_to edit_choice_path(choice) do %>
             <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
           <% end %>
-          <%= link_to '#', method: :delete do %>
+          <%= link_to choice_path(choice), method: :delete do %>
             <i class="fa fa-trash-o" aria-hidden="true" id="delete"></i>
           <% end %>
         </div>
