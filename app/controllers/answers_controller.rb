@@ -13,6 +13,7 @@ class AnswersController < ApplicationController
   end
 
   def new
+    @backgrounds = %w(bg-dark-blue bg-blue bg-light-blue)
   end
 
   def create
@@ -58,7 +59,15 @@ class AnswersController < ApplicationController
     @total = validated_queries.count
     @count = answered_queries.count + 1
     if queries.empty?
-      @query = Query.new(content: 'Vous avez répondu à toutes les questions disponibles')
+      attributes = {
+        content: 'Vous avez répondu à toutes les questions disponibles',
+        description: "Nous tâchons d'ajouter régulièrement de nouvelles questions
+                      pour vous permettre d'améliorer votre positionnement et de vous
+                      confronter à de nouveaux sujets. Dans l'intervalle, vous êtes libres
+                      de recommencer l'ensemble des questions et de découvrir le positionnement
+                      des autres utilisateurs"
+      }
+      @query = Query.new(attributes)
     else
       @query = queries.sample
     end

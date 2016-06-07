@@ -9,6 +9,7 @@
 .padded-sm { padding: 2em 0 }
 
 .marged-top { margin-top: 100px }
+.marged-bottom { margin-bottom: 120px }
 .marged-top-lg { margin-top: 20vh }
 
 // Backgrounds
@@ -24,7 +25,7 @@
 }
 
 .bg-black      { background: #4a4a4a;      color: white }
-.bg-grey       { background: $brand-gray;  color: white }
+.bg-gray       { background: $brand-gray;  color: white }
 .bg-red        { background: $red;         color: white }
 .bg-blue       { background: $blue;        color: white }
 .bg-light-blue { background: $light-blue;  color: white }
@@ -48,3 +49,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+// position
+.to-bottom { position: fixed; bottom: 0; width: 100% }
+
+// borders
+.top-buffer { box-shadow: 0 0 1px 10px $yellow }
