@@ -5,10 +5,8 @@
  * ------------------------------------- */
 
 // Paddings
-.padded {
-  padding-top: 5em;
-  padding-bottom: 5em;
-}
+.padded { padding: 5em 0 }
+.padded-sm { padding: 2em 0 }
 
 .marged-top { margin-top: 100px }
 
