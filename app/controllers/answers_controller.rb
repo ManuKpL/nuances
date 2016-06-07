@@ -56,8 +56,8 @@ class AnswersController < ApplicationController
       end
     end
     @total = validated_queries.count
-    @count = @total - answered_queries.count
-    if queries == [nil]
+    @count = answered_queries.count + 1
+    if queries.empty?
       @query = Query.new(content: 'Vous avez répondu à toutes les questions disponibles')
     else
       @query = queries.sample
