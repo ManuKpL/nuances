@@ -5,15 +5,33 @@
   </div>
 </div>
 <div class="container">
-  <p class="padded"><%= @query.description %></p>
-  <div class="row">
-    <% @query.choices.each do |choice| %>
-      <div class="col-xs-6">
-        <div class="padded bg-red flex-center">
-          <h2><%= choice.content %></h2>
-        </div>
+  <% if @query.content == 'Vous avez répondu à toutes les questions disponibles' %>
+    <div class="row padded">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <%= link_to new_answer_path(reset: :all) do %>
+          <div class="padded bg-red flex-center text-center">
+            <h2>Recommencer mon positionnement</h2>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% else %>
+    <div class="padded">
+      <p><%= @query.description %></p>
+      <p><%= @query.see_more %></p>
+      <p class="text-center marged-top">Question <%= @count %> sur <%= @total %></p>
+    </div>
+    <div class="row">
+      <% @query.choices.each do |choice| %>
+        <div class="col-xs-6">
+          <%= link_to answers_path(answer: { query_id: @query.id, choice_id: choice.id }), method: :create do %>
+            <div class="padded bg-green flex-center text-center">
+              <h2><%= choice.content %></h2>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 <div class="padded"></div>
