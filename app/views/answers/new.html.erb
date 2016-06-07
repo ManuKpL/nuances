@@ -1,6 +1,5 @@
-<div class="padded"></div>
-<div class="padded bg-blue">
-  <div class="container">
+<div class="page-banner page-banner-sm page-banner-mic">
+  <div class="page-banner-title">
     <h1><%= @query.content %></h1>
   </div>
 </div>
@@ -19,8 +18,10 @@
     <div class="padded">
       <p><%= @query.description %></p>
       <p><%= @query.see_more %></p>
-      <p class="text-center marged-top">Question <%= @count %> sur <%= @total %></p>
     </div>
+  </div>
+  <p class="text-center padded-sm bg-blue">Question <%= @count %> sur <%= @total %></p>
+  <div class="container">
     <div class="row">
       <% @query.choices.each do |choice| %>
         <div class="col-xs-6">

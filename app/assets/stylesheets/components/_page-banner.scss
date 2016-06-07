@@ -6,6 +6,7 @@
   height: 60vh;
   background-size: cover;
   background-position: center;
+  &-sm { height: 35vh; background-position: top }
   &-title {
     color: white;
     position: absolute;
@@ -17,4 +18,5 @@
     h1 { font-weight: 900 }
     p { padding-left: 20px }
   }
+  &-mic { background-image: url(mic) }
 }
