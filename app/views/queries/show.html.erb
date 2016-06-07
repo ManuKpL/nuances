@@ -43,13 +43,13 @@
       <% else %>
         <p class="query-title-description">Aucune description fournie</p>
       <% end %>
-      <p class='query-title-description'>En savoir plus: <%= link_to @query.see_more, @query.see_more %></p>
-      <% if @query.validated %>
-        <p class='text-center blue-text'>Question validée <i class="fa fa-check-circle" aria-hidden="true"></i></p>
-      <% else %>
-        <p class='text-center red-text'>En attente de validation <i class="fa fa-times-circle" aria-hidden="true"></i></p>
-      <% end %>
+      <p class='query-title-description truncated'>En savoir plus: <%= link_to @query.see_more, @query.see_more %></p>
     </div>
+    <% if @query.validated %>
+      <p class='text-center blue-text'>Question validée <i class="fa fa-check-circle" aria-hidden="true"></i></p>
+    <% else %>
+      <p class='text-center red-text'>En attente de validation <i class="fa fa-times-circle" aria-hidden="true"></i></p>
+    <% end %>
   <% if choices.empty? %>
     <p>Aucun choix enregistré</p>
   <% else %>
@@ -74,5 +74,6 @@
       </div>
     <% end %>
   <% end %>
+  <%= render "choices/inline_form" %>
 
 </div>

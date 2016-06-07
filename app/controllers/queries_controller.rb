@@ -4,6 +4,7 @@ class QueriesController < ApplicationController
   before_action :verify_editor_rights
 
   def show
+    @choice = Choice.new
   end
 
   def index

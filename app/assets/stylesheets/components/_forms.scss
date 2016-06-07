@@ -15,7 +15,28 @@
     &-login { background-image: url(banner) }
     &-new { background-image: url(linedpaper) }
   }
-  &-reminder {
-    margin-bottom: 1em;
+  &-reminder { margin-bottom: 1em }
+  &-inline {
+    margin: 40px 10vw 20px 10vw;
+    .form-group { margin: 0 5px }
+    .form-inputs { flex: 1 0 300px }
+    .form-actions { flex: 0 0 auto }
+    .form-control {
+      background-color: $yellow;
+      border: 1px solid rgba(0,0,0,0);
+      box-shadow: none;
+      border-radius: 2px;
+      font-weight: 100;
+      transition: border 0.3s ease;
+      &:focus { border-bottom: 1px solid $brand-gray }
+      &:hover { background-color: rgba(81, 148, 236, 0.1) }
+    }
+    .btn {
+      background-color: $yellow;
+      border: none;
+      border-bottom: 1px solid $brand-gray;
+      font-weight: 100;
+      &:hover { background-color: rgba(81, 148, 236, 0.1) }
+    }
   }
 }
