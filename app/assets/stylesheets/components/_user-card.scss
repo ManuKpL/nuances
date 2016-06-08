@@ -1,0 +1,27 @@
+.user-card {
+  background-color: rgba(255,255,255,1);
+  width: 300px;
+  height: 450px;
+  border-radius: 25px;
+  border: 1 solid $gray-light;
+  box-shadow: 1px 1px 3px $brand-gray;
+  &-inner {
+    position: relative;
+    width: 280px;
+    height: 430px;
+    border-radius: 20px;
+    background-color: rgba(255,255,255,1);
+    border: 5px solid $gray;
+  }
+  &-nickname {
+    position: absolute;
+    background-color: rgba(255,255,255,1);
+    padding: 0 5px;
+    border-radius: 5px;
+    margin: 0;
+    font-size: 12px;
+    font-family: 'Open Sans';
+  }
+  #top { top: -12.5px; left: 20px }
+  #bottom { bottom: -12.5px; right: 20px; transform: rotate(180deg) }
+}

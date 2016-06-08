@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   def show
   end
 
+  def index
+  end
+
   def update
     if current_user.update(user_params)
       redirect_to user_path(current_user), notice: "Les modifications bien été enregistrées"
@@ -10,6 +13,7 @@ class UsersController < ApplicationController
       render :show
     end
   end
+
 
   private
 

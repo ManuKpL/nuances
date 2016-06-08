@@ -11,7 +11,6 @@
       border-radius: 2px;
       background-color: rgba(250,250,250,0.7);
     }
-    #user_photo { font-weight: 100 }
   }
   &-layout {
     &-login { background-image: url(banner) }
@@ -19,8 +18,8 @@
   }
   &-reminder { margin-bottom: 1em }
   &-no-border {
-    margin: 40px 10vw 20px 10vw;
-    .form-group { margin: 0 5px }
+    #user_photo { font-weight: 100 }
+    .form-group { margin: 0 5px; width: 100% }
     .form-inputs { flex: 1 0 300px }
     .form-actions { flex: 0 0 auto }
     .form-control {
@@ -43,6 +42,10 @@
       border-bottom: 1px solid $brand-gray;
       font-weight: 100;
       &:hover { background-color: rgba(81, 148, 236, 0.1) }
+    }
+    &-inline {
+      margin: 40px 10vw 20px 10vw;
+      .form-inputs { margin-right: 15px }
     }
   }
   &-border-left { border-left: 1px solid $brand-gray !important }
