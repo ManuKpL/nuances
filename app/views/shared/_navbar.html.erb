@@ -1,8 +1,10 @@
 <div class="navbar">
   <div class="container navbar-container">
     <div class="navbar-elements">
-      <%= link_to 'Me positionner', new_answer_path, class: "navbar-item" %>
       <%= link_to 'Communauté', '#', class: "navbar-item" %>
+      <% if user_signed_in? %>
+        <%= link_to 'Me positionner', new_answer_path, class: "navbar-item" %>
+      <% end %>
       <hr>
     </div>
     <div class="navbar-title">
@@ -10,8 +12,8 @@
     </div>
     <div class="navbar-elements">
       <hr>
-      <%= link_to 'Mon Profil', user_path(current_user), class: "navbar-item" %>
       <% if user_signed_in? %>
+        <%= link_to 'Mon Profil', user_path(current_user), class: "navbar-item" %>
         <% if current_user.editor %>
           <div class="navbar-dropdown navbar-item">
             Administration

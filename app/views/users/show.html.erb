@@ -1,4 +1,5 @@
 <div class="bg-full flex-center">
+  <%= cl_image_tag current_user.photo, height: 100, width: 100, crop: :fill %>
   <div class="all-form-content all-form-content-sm all-form-no-border">
     <%= simple_form_for(current_user) do |f| %>
       <%= f.error_notification %>
@@ -9,6 +10,8 @@
         <%= f.input :email,      label: false, placeholder: 'Ajouter un email' %>
         <%= f.input :twitter,    label: false, placeholder: 'Ajouter un url de compte Twitter' %>
         <%= f.input :facebook,   label: false, placeholder: 'Ajouter un url de compte Facebook' %>
+        <%= f.input :photo,      label: false %>
+        <%= f.input :photo_cache, as: :hidden %>
       </div>
 
       <div class="form-actions text-right">
