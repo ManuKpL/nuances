@@ -22,13 +22,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-md-6 flex-center">
-      <div class="user-card text-center flex-center">
-        <div class="user-card-inner">
-          <p class="user-card-nickname" id="top"><%= current_user.nickname %></p>
-          <p class="user-card-nickname" id="bottom"><%= current_user.nickname %></p>
-          <%= cl_image_tag current_user.photo, height: 100, width: 100, crop: :fill %>
-        </div>
-      </div>
+      <%= render 'shared/user_card', user: current_user %>
     </div>
   </div>
 </div>

@@ -1,0 +1,18 @@
+<div class="user-card flex-center">
+  <div class="user-card-inner">
+    <p class="user-card-nickname" id="top"><%= user.nickname %></p>
+    <p class="user-card-nickname" id="bottom"><%= user.nickname %></p>
+    <ul class="user-card-badges">
+      <% @themes.each do |theme| %>
+        <% bg = @backgrounds.sample %>
+        <li class="user-card-badges-badge <%= bg %>">
+          <div class="user-card-badges-name <%= bg %>"><%= theme[:name] %></div>
+          <%= theme[:queries] %>
+        </li>
+      <% end %>
+    </ul>
+    <div class="user-card-pusher"></div>
+    <%= cl_image_tag user.photo, height: 150, width: 150, crop: :fill, class: 'user-card-photo' %>
+    <div class="user-card-pusher"></div>
+  </div>
+</div>
