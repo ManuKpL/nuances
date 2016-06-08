@@ -3,6 +3,7 @@
     width: 90vw;
     max-width: 800px;
     margin-bottom: 50px;
+    &-sm { max-width: 400px }
     textarea { min-height: 150px }
     h1 { font-weight: 900; margin-bottom: 0.5em }
     &-bg {
@@ -16,7 +17,7 @@
     &-new { background-image: url(linedpaper) }
   }
   &-reminder { margin-bottom: 1em }
-  &-inline {
+  &-no-border {
     margin: 40px 10vw 20px 10vw;
     .form-group { margin: 0 5px }
     .form-inputs { flex: 1 0 300px }
@@ -28,7 +29,11 @@
       border-radius: 2px;
       font-weight: 100;
       transition: border 0.3s ease;
-      &:focus { border-bottom: 1px solid $brand-gray }
+      margin: 10px 0;
+      &:focus {
+        border-bottom: 1px solid $brand-gray;
+        border-left: 1px solid rgba(0,0,0,0) !important;
+      }
       &:hover { background-color: rgba(81, 148, 236, 0.1) }
     }
     .btn {
@@ -39,4 +44,5 @@
       &:hover { background-color: rgba(81, 148, 236, 0.1) }
     }
   }
+  &-border-left { border-left: 1px solid $brand-gray !important }
 }

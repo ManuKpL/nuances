@@ -10,7 +10,7 @@
     </div>
     <div class="navbar-elements">
       <hr>
-      <%= link_to 'Mon Profil', '#', class: "navbar-item" %>
+      <%= link_to 'Mon Profil', user_path(current_user), class: "navbar-item" %>
       <% if user_signed_in? %>
         <% if current_user.editor %>
           <div class="navbar-dropdown navbar-item">
