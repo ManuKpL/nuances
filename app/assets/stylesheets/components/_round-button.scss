@@ -1,0 +1,61 @@
+.round-button {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  font-family: "Open Sans", "sans-serif";
+  font-size: 38px;
+  line-height: 38px;
+  p {
+    margin: 0;
+    z-index: 1;
+    line-height: 0;
+    i { font-size: 25px; margin-top: 1px }
+    .fa-minus, .fa-plus { margin-top: 3px }
+  }
+  &-container { position: relative }
+  &:hover > p {
+    animation-name: round-button-rotate;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+  &:hover > .round-button-new-element { display: flex }
+  &-new-element {
+    display: none;
+    position: absolute;
+    line-height: 50px;
+    font-size: 14px;
+    width: 200px;
+    right: 25px;
+    padding: 0 30px 0 15px;
+    border-radius: 25px 0 0 25px;
+    z-index: 0;
+    animation-name: round-button-content;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    transform-origin: 100% 0%;
+    &-link {
+      color: white;
+      &:hover {
+        color: white;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+      }
+    }
+  }
+  &-top { top: 10px }
+  &-center { top: 70px }
+  &-bottom { top: 130px }
+  &-right { right: 0; z-index: 3 }
+  &-middle { right: 60px; z-index: 2 }
+  &-left { right: 120px }
+}
+
+@keyframes round-button-rotate {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+@keyframes round-button-content {
+  0% { transform: scaleX(0.1) }
+  100% { transform: scaleX(1) }
+}

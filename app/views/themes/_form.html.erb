@@ -1,0 +1,32 @@
+<div class="all-form-content">
+
+  <h1 class="text-center"><%= title %></h1>
+  <% if reminder %>
+    <% count = reminder.count %>
+    <div class="all-form-reminder">
+      <i>
+        <% if count > 1 %>
+          <p><%= count %> thèmes enregistrés :
+        <% elsif count == 0 %>
+          <p>Aucun thème enregistré
+        <% else %>
+          <p><%= count %> thème enregistré :
+        <% end %>
+          <%= reminder.join(', ') %></p>
+      </i>
+    </div>
+  <% end %>
+
+  <%= simple_form_for(@theme) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :description %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, 'Soumettre' %>
+    </div>
+  <% end %>
+
+</div>

@@ -1,0 +1,66 @@
+<!-- BANNER -->
+<div class="page-banner page-banner-notebook">
+  <div class="page-banner-title">
+    <h1>Thèmes enregistrés</h1>
+    <% total = @themes.length %>
+    <% if total > 1 %>
+      <p><%= total %> thèmes trouvés</p>
+    <% elsif total == 0 %>
+      <p>Aucun thème trouvé</p>
+    <% else %>
+      <p><%= total %> thème trouvé</p>
+    <% end %>
+  </div>
+</div>
+<!-- BANNER -->
+
+<!-- BODY -->
+<div class="container round-button-container padded">
+  <!-- ACTION BUTTON -->
+  <%= link_to new_theme_path, class: 'round-button-new-element-link' do %>
+    <div class="round-button round-button-center round-button-right bg-blue flex-center">
+      <p><i class="fa fa-plus" aria-hidden="true"></i></p>
+      <div class="round-button-new-element bg-blue">
+        Ajouter un thème
+      </div>
+    </div>
+  <% end %>
+  <!-- ACTION BUTTON -->
+  <h2>Liste des thèmes</h2>
+  <% @themes.each_with_index do |theme, index| %>
+    <!-- THEME INSTANCE -->
+    <div class="list-instance-container">
+      <div class="list-instance-item list-instance-id">
+        <%= index + 1 %>
+      </div>
+      <hr>
+      <div class="list-instance-item list-instance-name section-title section-title-small">
+        <%= theme.name %>
+        <% count = theme.queries.count %>
+        <% if count > 1 %>
+          <p><%= count %> questions</p>
+        <% else %>
+          <p><%= count %> question</p>
+        <% end %>
+      </div>
+      <hr>
+      <div class="list-instance-item list-instance-description">
+        <%= theme.description %>
+      </div>
+      <hr>
+      <div class="list-instance-item list-instance-actions">
+        <%= link_to theme_path(theme) do %>
+          <i class="fa fa-eye" aria-hidden="true" id="show"></i>
+        <% end %>
+        <%= link_to edit_theme_path(theme) do %>
+          <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
+        <% end %>
+        <%= link_to theme_path(theme), method: :delete do %>
+          <i class="fa fa-trash-o" aria-hidden="true" id="delete"></i>
+        <% end %>
+      </div>
+    </div>
+    <!-- THEME INSTANCE -->
+  <% end %>
+</div>
+<!-- BODY -->

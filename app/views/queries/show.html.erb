@@ -1,0 +1,117 @@
+<!-- BANNER -->
+<div class="page-banner page-banner-notepad">
+  <div class="page-banner-title">
+    <h1><%= @query.content %></h1>
+    <% choices = @query.choices %>
+    <% total = choices.length %>
+    <% if total > 1 %>
+      <p><%= total %> choixs trouvés</p>
+    <% elsif total == 0 %>
+      <p>Aucun choix trouvé</p>
+    <% else %>
+      <p><%= total %> choix trouvé</p>
+    <% end %>
+  </div>
+</div>
+<!-- BANNER -->
+
+<!-- BODY 1 -->
+<div class="container round-button-container padded">
+
+  <!-- ACTION BUTTONS -->
+  <%= link_to edit_query_path(@query), class: 'round-button-new-element-link' do %>
+    <div class="round-button round-button-top round-button-right bg-blue flex-center">
+      <p><i class="fa fa-cog" aria-hidden="true"></i></p>
+      <div class="round-button-new-element bg-blue">
+        Modifier la question
+      </div>
+    </div>
+  <% end %>
+  <%= link_to query_path(@query), method: :delete, class: 'round-button-new-element-link' do %>
+    <div class="round-button round-button-center round-button-right bg-red flex-center">
+      <p><i class="fa fa-minus" aria-hidden="true"></i></p>
+      <div class="round-button-new-element bg-red">
+        Supprimer la question
+      </div>
+    </div>
+  <% end %>
+  <% if @query.validated %> <!-- check if query is valid and add button accordingly -->
+    <%= link_to query_path(@query, query: { validated: false }), method: :patch, class: 'round-button-new-element-link' do %>
+      <div class="round-button round-button-bottom round-button-right bg-red flex-center">
+        <p><i class="fa fa-ban" aria-hidden="true"></i></p>
+        <div class="round-button-new-element bg-red">
+          Invalider la question
+        </div>
+      </div>
+    <% end %>
+  <% elsif @query.choices.count >= 2 %> <!-- check if query has at least 2 choices and add button accordingly -->
+    <%= link_to query_path(@query, query: { validated: true }), method: :patch, class: 'round-button-new-element-link' do %>
+      <div class="round-button round-button-bottom round-button-right bg-green flex-center">
+        <p><i class="fa fa-check" aria-hidden="true"></i></p>
+        <div class="round-button-new-element bg-green">
+          Valider la question
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <!-- ACTION BUTTONS -->
+
+
+  <div class="section-title">
+    <% if @query.description.length > 0 %>
+      <p class='section-title-description'><%= @query.description %></p>
+    <% else %>
+      <p class="section-title-description">Aucune description fournie</p>
+    <% end %>
+    <p class='section-title-description truncated'>En savoir plus: <%= link_to @query.see_more, @query.see_more %></p>
+  </div>
+</div>
+<!-- BODY 1 -->
+
+<!-- VALIDITY BANNER -->
+<% if @query.validated %>
+  <p class='text-center bg-green padded-sm'>Question validée <i class="fa fa-check-circle" aria-hidden="true"></i></p>
+<% else %>
+  <p class='text-center bg-red padded-sm'>En attente de validation <i class="fa fa-times-circle" aria-hidden="true"></i><br>(2 choix minimum pour pouvoir valider)</p>
+<% end %>
+<!-- VALIDITY BANNER -->
+
+<!-- BODY 2 -->
+<div class="container padded">
+  <% if choices.empty? %> <!-- check if query has choices associated -->
+    <p>Aucun choix enregistré</p>
+  <% else %>
+    <% choices.each_with_index do |choice, index| %>
+
+      <!-- CHOICE INSTANCE -->
+      <div class="list-instance-container">
+        <div class="list-instance-item list-instance-id">
+          <%= index + 1 %>
+        </div>
+        <hr>
+        <div class="list-instance-item list-instance-content">
+          <%= choice.content %>
+        </div>
+        <hr>
+        <div class="list-instance-item list-instance-actions">
+          <%= link_to edit_choice_path(choice) do %>
+            <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
+          <% end %>
+          <%= link_to choice_path(choice), method: :delete do %>
+            <i class="fa fa-trash-o" aria-hidden="true" id="delete"></i>
+          <% end %>
+        </div>
+      </div>
+      <!-- CHOICE INSTANCE -->
+
+    <% end %>
+  <% end %>
+
+  <!-- FORM new_choice -->
+  <div class="padded-sm">
+    <%= render "choices/inline_form" %>
+  </div>
+  <!-- FORM new_choice -->
+
+</div>
+<!-- BODY 2 -->

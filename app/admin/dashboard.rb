@@ -10,6 +10,13 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
+    div class: 'blank_slate_container' do
+      span class: 'blank_slate' do
+        span link_to('Back to front', root_path)
+        small 'Powered by @Manu_KpL'
+      end
+    end
+
     # Here is an example of a simple dashboard with columns and panels.
     #
     # columns do

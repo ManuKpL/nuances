@@ -1,0 +1,92 @@
+<!-- BANNER -->
+<div class="page-banner page-banner-notebook">
+  <div class="page-banner-title">
+    <h1>Questions enregistrées</h1>
+    <% total = @queries.length %>
+    <% if total > 1 %>
+      <p><%= total %> questions trouvées</p>
+    <% elsif total == 0 %>
+      <p>Aucune question trouvée</p>
+    <% else %>
+      <p><%= total %> question trouvée</p>
+    <% end %>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="container round-button-container padded">
+
+  <!-- ACTION BUTTON -->
+  <%= link_to new_query_path, class: 'round-button-new-element-link' do %>
+    <div class="round-button round-button-center round-button-right bg-green flex-center">
+      <p><i class="fa fa-plus" aria-hidden="true"></i></p>
+      <div class="round-button-new-element bg-green">
+        Ajouter une question
+      </div>
+    </div>
+  <% end %>
+
+  <!-- THEME -->
+  <% @themes.each do |theme| %>
+    <% queries = theme.queries %>
+    <!-- check if theme as queries associated -->
+    <% unless queries.empty? %>
+
+      <div class="section-title">
+        <h2><%= theme.name %></h2>
+        <% count = queries.count %>
+        <% if count > 1 %>
+          <p id='subtitle'><%= count %> questions</p>
+        <% else %>
+          <p id='subtitle'><%= count %> question</p>
+        <% end %>
+      </div>
+
+      <!-- QUERY INSTANCE -->
+      <% queries.each_with_index do |query, index| %>
+        <div class="list-instance-container">
+          <div class="list-instance-item list-instance-id">
+            <%= index + 1 %>
+          </div>
+          <hr>
+          <div class="list-instance-item list-instance-content section-title section-title-small">
+            <%= query.content %>
+            <% status =  %>
+            <p>
+              <%= query.choices.count %> choix
+               -
+              <% if query.validated %>
+                <span class="blue-text">Validée</span> <i class="fa fa-check-circle blue-text" aria-hidden="true"></i>
+              <% else %>
+                <span class="red-text">En attente</span> <i class="fa fa-times-circle red-text" aria-hidden="true"></i>
+              <% end %>
+            </p>
+          </div>
+          <hr>
+          <div class="list-instance-item list-instance-description">
+            <%= query.description %>
+          </div>
+          <hr>
+          <div class="list-instance-item list-instance-actions">
+            <%= link_to query_path(query) do %>
+              <i class="fa fa-eye" aria-hidden="true" id="show"></i>
+            <% end %>
+            <%= link_to edit_query_path(query) do %>
+              <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
+            <% end %>
+            <%= link_to query_path(query), method: :delete do %>
+              <i class="fa fa-trash-o" aria-hidden="true" id="delete"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <!-- QUERY INSTANCE -->
+
+    <% end %>
+    <!-- check if theme as queries associated -->
+
+  <% end %>
+  <!-- THEME -->
+
+</div>
+<!-- BODY -->

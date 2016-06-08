@@ -1,0 +1,58 @@
+@function sqrt($r) {
+  $x0: 1;
+  $x1: $x0;
+
+  @for $i from 1 through 10 {
+    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+    $x0: $x1;
+  }
+
+  @return $x1;
+}
+
+$w: 250;
+$width: $w * 1px;
+$height: sqrt(($w/2)*($w/2)-($w/4)*($w/4))*2 * 1px;
+
+.hexagon {
+  position: absolute;
+  height: $height;
+  width: $width;
+  color: white;
+  clip-path: polygon(0% 50%, 50% -50%, 100% 50%, 50% 150%);
+  &-container {
+    position: relative;
+  }
+}
+
+$top: $height / 100.0 * 51;
+$left: $width / 100.0 * 76;
+
+#one {
+  top: 0;
+  left: 0;
+}
+#two {
+  top: $top;
+  left: $left;
+}
+#three {
+  top: 0;
+  left: $left * 2;
+}
+#four {
+  top: -$top;
+  left: $left;
+}
+#five {
+  top: $top * 2;
+  left: 0;
+}
+#six {
+  top: $top * 3;
+  left: $left;
+}
+#seven {
+  top: $top * 2;
+  left: $left * 2;
+}

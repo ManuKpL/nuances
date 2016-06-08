@@ -1,0 +1,46 @@
+.question {
+  &-title {
+    font-weight: 900;
+    margin: 20vh 5vw 50px 0;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: '';
+      height: 10px;
+      width: 25vw;
+      bottom: -30px;
+      left: 75px;
+      background-color: $gray_darker;
+      border-radius: 3px;
+    }
+  }
+  &-details {
+    margin: 0 5vw 50px 5vw;
+    text-align: justify;
+    #description {
+      flex: 3 0 300px;
+      padding-right: 30px;
+      border-right: 1px solid $brand-gray;
+    }
+    #link {
+      flex: 0 0 auto;
+      position: relative;
+      color: inherit;
+      &::after {
+        content: '';
+        z-index: -1;
+        height: 10px;
+        width: 115px;
+        top: 15px;
+        left: 15px;
+        background-color: rgba(88, 89, 248, 0.5);
+        position: absolute;
+      }
+      &:hover {
+        text-decoration: none;
+        &::after { background-color: rgba(88, 89, 248, 0.3) }
+      }
+    }
+  }
+  &-item { margin: 15px }
+}

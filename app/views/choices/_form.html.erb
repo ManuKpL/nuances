@@ -1,0 +1,16 @@
+<div class="all-form-content">
+  <h1 class="text-center"><%= title %></h1>
+
+  <%= simple_form_for(@choice) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.association :query, :include_blank => false %>
+      <%= f.input :content %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, 'Soumettre' %>
+    </div>
+  <% end %>
+
+</div>

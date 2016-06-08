@@ -1,0 +1,37 @@
+.list-instance {
+  &-container {
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    padding: 0 10px;
+    margin: 5px 0;
+    hr {
+      height: 30px;
+      width: 0;
+      border-right: 1px solid $brand-gray;
+      margin: 0 10px;
+    }
+    &:hover { background-color: rgba(81, 148, 236, 0.1) }
+  }
+  &-item { padding: 10px 5px }
+  &-id {
+    flex: 0 0 40px;
+    text-align: right;
+    font-family: "Open Sans";
+    font-size: 26px;
+  }
+  &-name { flex: 1 1 100px; font-size: 18px }
+  &-content { flex: 1 1 200px; font-size: 16px }
+  &-description { flex: 3 1 600px; font-size: 14px }
+  &-actions {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    a { color: $gray-dark }
+    #show:hover { color: $green }
+    #delete:hover { color: $red }
+    #edit:hover { color: $blue }
+  }
+}

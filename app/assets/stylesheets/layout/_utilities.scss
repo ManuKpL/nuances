@@ -5,40 +5,36 @@
  * ------------------------------------- */
 
 // Paddings
-.padded {
-  padding-top: 5em;
-  padding-bottom: 5em;
-}
+.padded { padding: 5em 0 }
+.padded-sm { padding: 2em 0 }
+
+.marged-top { margin-top: 100px }
+.marged-bottom { margin-bottom: 120px }
+.marged-top-lg { margin-top: 20vh }
 
 // Backgrounds
-.bg-black {
-  background: #4a4a4a;
-  color: white;
+.bg-full {
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  &-cover {
+    background-size: cover;
+    background-position: center;
+  }
 }
-.bg-grey {
-  background: $brand-gray;
-  color: white;
-}
-.bg-red {
-  background: $red;
-  color: white;
-}
-.bg-blue {
-  background: $blue;
-  color: white;
-}
-.bg-light-blue {
-  background: $light-blue;
-  color: white;
-}
-.bg-dark-blue {
-  background: $brand-color;
-  color: white;
-}
-.bg-green {
-  background: $green;
-  color: white;
-}
+
+.bg-black      { background: #4a4a4a;      color: white }
+.bg-gray       { background: $brand-gray;  color: white }
+.bg-red        { background: $red;         color: white }
+.bg-blue       { background: $blue;        color: white }
+.bg-light-blue { background: $light-blue;  color: white }
+.bg-dark-blue  { background: $brand-color; color: white }
+.bg-green      { background: $green;       color: white }
+
+// Color
+ .blue-text { color: $blue }
+ .red-text { color: $red }
 
 // Positions
 .flex-center {
@@ -46,3 +42,16 @@
   align-items: center;
   justify-content: center;
 }
+
+// Text flow
+.truncated {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// position
+.to-bottom { position: fixed; bottom: 0; width: 100% }
+
+// borders
+.top-buffer { box-shadow: 0 0 1px 10px $yellow }

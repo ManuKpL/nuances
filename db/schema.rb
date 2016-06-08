@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527160544) do
+ActiveRecord::Schema.define(version: 20160606192005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,8 +57,9 @@ ActiveRecord::Schema.define(version: 20160527160544) do
     t.string   "content"
     t.text     "description"
     t.string   "see_more"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "validated",   default: false
   end
 
   add_index "queries", ["theme_id"], name: "index_queries_on_theme_id", using: :btree
@@ -89,6 +90,7 @@ ActiveRecord::Schema.define(version: 20160527160544) do
     t.string   "twitter"
     t.string   "facebook"
     t.boolean  "admin",                  default: false, null: false
+    t.boolean  "editor",                 default: false, null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
