@@ -1,0 +1,79 @@
+.user-card {
+  background-color: rgba(255,255,255,1);
+  width: 300px;
+  height: 450px;
+  border-radius: 25px;
+  border: 1 solid $gray-light;
+  box-shadow: 1px 1px 3px $brand-gray;
+  font-family: 'Open Sans';
+  &-inner {
+    position: relative;
+    width: 280px;
+    height: 430px;
+    border-radius: 20px;
+    background-color: rgba(255,255,255,1);
+    border: 5px solid $gray;
+  }
+  &-nickname {
+    position: absolute;
+    background-color: rgba(255,255,255,1);
+    padding: 0 5px;
+    border-radius: 5px;
+    margin: 0;
+    font-size: 12px;
+  }
+  #top { top: -12.5px; left: 20px }
+  #bottom { bottom: -12.5px; right: 20px; transform: rotate(180deg) }
+  &-photo { border-radius: 50% }
+  &-badges {
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    &-badge {
+      display: flex;
+      padding: 2px 4px 2px 7px;
+      margin-bottom: 5px;
+      border-radius: 2px;
+      width: 55px;
+      position: relative;
+      justify-content: flex-end;
+      cursor: pointer;
+      &:hover > .user-card-badges-name { display: flex }
+    }
+    &-name {
+      height: 100%;
+      width: 110px;
+      position: absolute;
+      padding: 0 5px;
+      left: -105px;
+      top: 0;
+      display: none;
+      align-items: center;
+      border-radius: 2px 0 0 2px;
+      animation-name: user-card-badges-name;
+      animation-duration: 0.3s;
+      animation-timing-function: ease-out;
+      transform-origin: 100% 0%;
+      font-size: 16px;
+    }
+  }
+  &-answered-queries {
+    width: 100%;
+    margin-left: 18px;
+    font-size: 12px;
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    span {
+      font-size: 28px;
+      font-family: 'Playfair Display';
+      font-weight: 900;
+    }
+    p { margin: 0 }
+  }
+}
+
+@keyframes user-card-badges-name {
+  0% { transform: scaleX(0.1) }
+  100% { transform: scaleX(1) }
+}

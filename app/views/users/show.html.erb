@@ -1,22 +1,28 @@
-<div class="bg-full flex-center">
-  <%= cl_image_tag current_user.photo, height: 100, width: 100, crop: :fill %>
-  <div class="all-form-content all-form-content-sm all-form-no-border">
-    <%= simple_form_for(current_user) do |f| %>
-      <%= f.error_notification %>
-      <div class="form-inputs">
-        <%= f.input :nickname,   label: false, placeholder: 'Ajouter un surnom' %>
-        <%= f.input :first_name, label: false, placeholder: 'Ajouter un prénom' %>
-        <%= f.input :last_name,  label: false, placeholder: 'Ajouter un nom de famille' %>
-        <%= f.input :email,      label: false, placeholder: 'Ajouter un email' %>
-        <%= f.input :twitter,    label: false, placeholder: 'Ajouter un url de compte Twitter' %>
-        <%= f.input :facebook,   label: false, placeholder: 'Ajouter un url de compte Facebook' %>
-        <%= f.input :photo,      label: false %>
-        <%= f.input :photo_cache, as: :hidden %>
+<div class="container padded">
+  <h1 class="text-center padded-sm">Mon Profil</h1>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="all-form-no-border">
+        <%= simple_form_for(@user) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :nickname,   label: false, placeholder: 'Ajouter un surnom' %>
+            <%= f.input :first_name, label: false, placeholder: 'Ajouter un prénom' %>
+            <%= f.input :last_name,  label: false, placeholder: 'Ajouter un nom de famille' %>
+            <%= f.input :email,      label: false, placeholder: 'Ajouter un email' %>
+            <%= f.input :twitter,    label: false, placeholder: 'Ajouter un url de compte Twitter' %>
+            <%= f.input :facebook,   label: false, placeholder: 'Ajouter un url de compte Facebook' %>
+            <%= f.input :photo,      label: false %>
+            <%= f.input :photo_cache, as: :hidden %>
+          </div>
+          <div class="form-actions text-center padded-sm">
+            <%= f.button :submit, 'Modifier le profil' %>
+          </div>
+        <% end %>
       </div>
-
-      <div class="form-actions text-right padded-sm">
-        <%= f.button :submit, 'Modifier le profil' %>
-      </div>
-    <% end %>
+    </div>
+    <div class="col-xs-12 col-md-6 flex-center">
+      <%= render 'users/user_card', user: @user, comparison: 'all' %>
+    </div>
   </div>
 </div>

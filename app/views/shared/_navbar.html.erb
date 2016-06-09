@@ -1,7 +1,7 @@
 <div class="navbar">
   <div class="container navbar-container">
     <div class="navbar-elements">
-      <%= link_to 'Communauté', '#', class: "navbar-item" %>
+      <%= link_to 'Communauté', users_path, class: "navbar-item" %>
       <% if user_signed_in? %>
         <%= link_to 'Me positionner', new_answer_path, class: "navbar-item" %>
       <% end %>
