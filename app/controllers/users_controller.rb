@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    redirect_to root_path if is_not_current?
   end
 
   def index
@@ -25,6 +26,10 @@ class UsersController < ApplicationController
 
 
   private
+
+  def is_not_current?
+    @user != current_user
+  end
 
   def user_params
     params.require(:user).permit(:nickname, :first_name, :last_name, :email, :twitter, :facebook, :photo, :photo_cache)
