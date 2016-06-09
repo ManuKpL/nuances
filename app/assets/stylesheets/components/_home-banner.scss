@@ -10,7 +10,7 @@ $polygon: $height - $home-polygon;
   left: 0;
   height: $height;
   clip-path: polygon(0 0,100% 0,100% 100%,0 $polygon);
-  background-image: url(banner);
+  background-image: url('banner.jpg');
   background-size: cover;
   background-position: center;
   &-text {
