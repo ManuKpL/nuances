@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: :show
-  before_action :set_themes, only: [:show, :index]
+  before_action only: :show do
+    set_user
+    set_themes_global
+  end
   before_action :set_bgs, only: [:show, :index]
 
   def show
@@ -33,14 +35,14 @@ class UsersController < ApplicationController
     @backgrounds = %w(bg-dark-blue bg-blue bg-light-blue)
   end
 
-  def set_themes
+  def set_themes_global
     @themes = Array.new
     Theme.order(:name).each do |theme|
       count = 0
-      theme.queries.each do |query|
-        count +=1 if query.users.include?(@user)
-      end
-      percentage = (count * 100.0 / theme.queries.count).round(0).to_s << "%"
+      global = theme.answers.map(&:choice_id)
+      user = theme.answers.where(user_id: @user).map(&:choice_id)
+      user.each { |answer| count += global.count(answer) - 1 }
+      percentage = (count * 100.0 / (global.count - user.count)).round.to_s << "%"
       @themes << { name: theme.name, queries: percentage }
     end
   end
