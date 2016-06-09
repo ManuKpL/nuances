@@ -3,11 +3,11 @@
     <p class="user-card-nickname" id="top"><%= user.nickname %></p>
     <p class="user-card-nickname" id="bottom"><%= user.nickname %></p>
     <ul class="user-card-badges">
-      <% @themes.each do |theme| %>
-        <% bg = @backgrounds.sample %>
-        <li class="user-card-badges-badge <%= bg %>">
-          <div class="user-card-badges-name <%= bg %>"><%= theme.name %></div>
-          <%= compare_answers(theme, comparison) %>
+      <% @themes.each_with_index do |theme, index| %>
+        <li class="user-card-badges-badge <%= @backgrounds[index] %>">
+          <div class="user-card-badges-name <%= @backgrounds[index] %>"><%= theme.name %></div>
+          <% compared_user = @user ? @user : user %>
+          <%= compare_answers(compared_user, theme, comparison) %>
         </li>
       <% end %>
     </ul>

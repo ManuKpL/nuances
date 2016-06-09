@@ -5,8 +5,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: :show
   before_action :set_users, only: :index
   before_action only: [:show, :index] do
-    set_backgrounds
     set_themes
+    set_backgrounds
   end
 
   def show
@@ -40,7 +40,13 @@ class UsersController < ApplicationController
   end
 
   def set_backgrounds
-    @backgrounds = %w(bg-dark-blue bg-blue bg-light-blue)
+    backgrounds = %w(bg-light-blue bg-blue bg-dark-blue)
+    @backgrounds = Array.new
+    x = backgrounds.count - 1
+    @themes.count.times do
+      @backgrounds << backgrounds[x]
+      x -= 1
+    end
   end
 
   def set_themes
