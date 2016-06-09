@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
 
+  include UsersHelper
+
   before_action only: :show do
     set_user
     set_themes_global
   end
+  before_action :set_users, only: :index
   before_action :set_bgs, only: [:show, :index]
 
   def show
@@ -31,6 +34,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def set_users
+    @user = current_user
+    @users = User.order(:nickname)
+  end
+
   def set_bgs
     @backgrounds = %w(bg-dark-blue bg-blue bg-light-blue)
   end
@@ -38,12 +46,8 @@ class UsersController < ApplicationController
   def set_themes_global
     @themes = Array.new
     Theme.order(:name).each do |theme|
-      count = 0
-      global = theme.answers.map(&:choice_id)
-      user = theme.answers.where(user_id: @user).map(&:choice_id)
-      user.each { |answer| count += global.count(answer) - 1 }
-      percentage = (count * 100.0 / (global.count - user.count)).round.to_s << "%"
-      @themes << { name: theme.name, queries: percentage }
+      @themes << { name: theme.name, queries: compare_answers(theme) }
     end
   end
+
 end
