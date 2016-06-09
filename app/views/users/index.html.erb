@@ -1,1 +1,10 @@
-<div class="bg-full flex-center"><h1>PAGE EN CONSTRUCTION</h1></div>
+<div class="container padded">
+  <h1 class="text-center padded-sm">Communauté</h1>
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 flex-center">
+        <%= render 'users/user_card', user: user, comparison: user.id %>
+      </div>
+    <% end %>
+  </div>
+</div>

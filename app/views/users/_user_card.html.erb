@@ -6,13 +6,14 @@
       <% @themes.each do |theme| %>
         <% bg = @backgrounds.sample %>
         <li class="user-card-badges-badge <%= bg %>">
-          <div class="user-card-badges-name <%= bg %>"><%= theme[:name] %></div>
-          <%= theme[:queries] %>
+          <div class="user-card-badges-name <%= bg %>"><%= theme.name %></div>
+          <%= compare_answers(theme, comparison) %>
         </li>
       <% end %>
     </ul>
     <div class="user-card-pusher"></div>
-    <%= cl_image_tag user.photo, height: 150, width: 150, crop: :fill, class: 'user-card-photo' %>
+    <% photo = user[:photo] ? user.photo : 'placeholder' %>
+    <%= cl_image_tag photo, height: 150, width: 150, crop: :fill, class: 'user-card-photo' %>
     <div class="user-card-pusher"></div>
   </div>
 </div>

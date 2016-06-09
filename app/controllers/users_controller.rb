@@ -2,12 +2,12 @@ class UsersController < ApplicationController
 
   include UsersHelper
 
-  before_action only: :show do
-    set_user
-    set_themes_global
-  end
+  before_action :set_user, only: :show
   before_action :set_users, only: :index
-  before_action :set_bgs, only: [:show, :index]
+  before_action only: [:show, :index] do
+    set_backgrounds
+    set_themes
+  end
 
   def show
   end
@@ -36,18 +36,15 @@ class UsersController < ApplicationController
 
   def set_users
     @user = current_user
-    @users = User.order(:nickname)
+    @users = User.where.not(id: @user).order(:nickname)
   end
 
-  def set_bgs
+  def set_backgrounds
     @backgrounds = %w(bg-dark-blue bg-blue bg-light-blue)
   end
 
-  def set_themes_global
-    @themes = Array.new
-    Theme.order(:name).each do |theme|
-      @themes << { name: theme.name, queries: compare_answers(theme) }
-    end
+  def set_themes
+    @themes = Theme.order(:name)
   end
 
 end
