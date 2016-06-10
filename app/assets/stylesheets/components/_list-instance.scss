@@ -35,3 +35,30 @@
     #edit:hover { color: $blue }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .list-instance {
+    &-container {
+      flex-direction: column;
+      margin: 25px 0;
+      hr {
+        height: 0px;
+        width: 30px;
+        border-top: 1px solid $brand-gray;
+        border-right: none;
+        margin: 10px 0;
+      }
+    }
+    &-item { padding: 0 }
+    &-name { flex: 1 1 auto }
+    &-content { flex: 1 1 auto }
+    &-description { flex: 3 1 auto; text-align: justify; padding: 5px 20px }
+    &-actions {
+      flex-direction: row;
+      font-size: 30px;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}

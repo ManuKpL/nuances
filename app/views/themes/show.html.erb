@@ -16,77 +16,80 @@
 <!-- BANNER -->
 
 <!-- BODY -->
-<div class="container round-button-container padded">
-  <!-- ACTION BUTTONS -->
-  <%= link_to edit_theme_path(@theme), class: 'round-button-new-element-link' do %>
-    <div class="round-button round-button-top round-button-right bg-blue flex-center">
-      <p><i class="fa fa-cog" aria-hidden="true"></i></p>
-      <div class="round-button-new-element bg-blue">
-        Modifier le thème
-      </div>
-    </div>
-  <% end %>
-  <%= link_to theme_path(@theme), method: :delete, class: 'round-button-new-element-link' do %>
-    <div class="round-button round-button-center round-button-right bg-red flex-center">
-      <p><i class="fa fa-minus" aria-hidden="true"></i></p>
-      <div class="round-button-new-element bg-red">
-        Supprimer le thème
-      </div>
-    </div>
-  <% end %>
-  <%= link_to new_query_path(theme: @theme.id), class: 'round-button-new-element-link' do %>
-    <div class="round-button round-button-bottom round-button-right bg-green flex-center">
-      <p><i class="fa fa-plus" aria-hidden="true"></i></p>
-      <div class="round-button-new-element bg-green">
-        Ajouter une question
-      </div>
-    </div>
-  <% end %>
-  <!-- ACTION BUTTONS -->
+<div class="container">
+  <div class="round-button-container padded">
 
-  <div class="section-title">
-    <% if @theme.description.length > 0 %>
-      <p class='section-title-description'><%= @theme.description %></p>
-    <% else %>
-      <p class="section-title-description">Aucune description fournie</p>
-    <% end %>
-  </div>
-
-  <div class="padded-sm">
-    <% if queries.empty? %> <!-- check if theme has related queries -->
-      <p>Aucune question enregistrée</p>
-    <% else %>
-      <% queries.each_with_index do |query, index| %>
-        <!-- QUERY INSTANCE -->
-        <div class="list-instance-container">
-          <div class="list-instance-item list-instance-id">
-            <%= index + 1 %>
-          </div>
-          <hr>
-          <div class="list-instance-item list-instance-content">
-            <%= query.content.html_safe %>
-          </div>
-          <hr>
-          <div class="list-instance-item list-instance-description">
-            <%= query.description %>
-          </div>
-          <hr>
-          <div class="list-instance-item list-instance-actions">
-            <%= link_to query_path(query) do %>
-              <i class="fa fa-eye" aria-hidden="true" id="show"></i>
-            <% end %>
-            <%= link_to edit_query_path(query) do %>
-              <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
-            <% end %>
-            <%= link_to query_path(query), method: :delete do %>
-              <i class="fa fa-trash-o" aria-hidden="true" id="delete"></i>
-            <% end %>
-          </div>
+    <!-- ACTION BUTTONS -->
+    <%= link_to edit_theme_path(@theme), class: 'round-button-new-element-link' do %>
+      <div class="round-button round-button-top round-button-right bg-blue flex-center">
+        <p><i class="fa fa-cog" aria-hidden="true"></i></p>
+        <div class="round-button-new-element bg-blue">
+          Modifier le thème
         </div>
-        <!-- QUERY INSTANCE -->
-      <% end %>
+      </div>
     <% end %>
-  </div>
+    <%= link_to theme_path(@theme), method: :delete, class: 'round-button-new-element-link' do %>
+      <div class="round-button round-button-center round-button-right bg-red flex-center">
+        <p><i class="fa fa-minus" aria-hidden="true"></i></p>
+        <div class="round-button-new-element bg-red">
+          Supprimer le thème
+        </div>
+      </div>
+    <% end %>
+    <%= link_to new_query_path(theme: @theme.id), class: 'round-button-new-element-link' do %>
+      <div class="round-button round-button-bottom round-button-right bg-green flex-center">
+        <p><i class="fa fa-plus" aria-hidden="true"></i></p>
+        <div class="round-button-new-element bg-green">
+          Ajouter une question
+        </div>
+      </div>
+    <% end %>
+    <!-- ACTION BUTTONS -->
 
+    <div class="section-title">
+      <% if @theme.description.length > 0 %>
+        <p class='section-title-description'><%= @theme.description %></p>
+      <% else %>
+        <p class="section-title-description">Aucune description fournie</p>
+      <% end %>
+    </div>
+
+    <div class="padded-sm">
+      <% if queries.empty? %> <!-- check if theme has related queries -->
+        <p>Aucune question enregistrée</p>
+      <% else %>
+        <% queries.each_with_index do |query, index| %>
+          <!-- QUERY INSTANCE -->
+          <div class="list-instance-container">
+            <div class="list-instance-item list-instance-id">
+              <%= index + 1 %>
+            </div>
+            <hr>
+            <div class="list-instance-item list-instance-content">
+              <%= query.content.html_safe %>
+            </div>
+            <hr>
+            <div class="list-instance-item list-instance-description">
+              <%= query.description %>
+            </div>
+            <hr>
+            <div class="list-instance-item list-instance-actions">
+              <%= link_to query_path(query) do %>
+                <i class="fa fa-eye" aria-hidden="true" id="show"></i>
+              <% end %>
+              <%= link_to edit_query_path(query) do %>
+                <i class="fa fa-pencil" aria-hidden="true" id="edit"></i>
+              <% end %>
+              <%= link_to query_path(query), method: :delete do %>
+                <i class="fa fa-trash-o" aria-hidden="true" id="delete"></i>
+              <% end %>
+            </div>
+          </div>
+          <!-- QUERY INSTANCE -->
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
 </div>
 <!-- BODY -->

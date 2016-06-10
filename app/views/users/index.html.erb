@@ -1,5 +1,12 @@
-<div class="container padded">
-  <h1 class="text-center padded-sm">Communauté</h1>
+<div class="container hidden-xs">
+  <div class="text-center padded">
+    <h1>Communauté</h1>
+    <% if user_signed_in? %>
+      <p>Comparez votre proximité avec les autres membres sur chaque thème de questions</p>
+    <% else %>
+      <p>Découvrez la proximité de chaque membre avec l'ensemble de la communauté en fonction des thèmes de questions</p>
+    <% end %>
+  </div>
   <div class="row">
     <% @users.each do |user| %>
       <div class="col-xs-12 col-sm-6 col-md-4 flex-center">
@@ -11,4 +18,13 @@
       </div>
     <% end %>
   </div>
+</div>
+<div class="user-card-container-xs hidden-sm hidden-md hidden-lg">
+  <% @users.each do |user| %>
+    <% if user_signed_in? %>
+      <%= render 'users/user_card', user: user, comparison: user.id %>
+    <% else %>
+      <%= render 'users/user_card', user: user, comparison: 'all' %>
+    <% end %>
+  <% end %>
 </div>
