@@ -18,6 +18,7 @@ class QueriesController < ApplicationController
 
   def create
     @query = Query.new(query_params)
+    @query.content.gsub!(' ?', '&nbsp;?')
     if @query.save
       redirect_to query_path(@query)
     else

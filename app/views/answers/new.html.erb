@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="question-title"><%= @query.content %></h1>
+  <h1 class="question-title"><%= @query.content.html_safe %></h1>
 <% if @query.content == 'Vous avez répondu à toutes les questions disponibles' %>
   <div class="question-details flex-center">
     <p class='question-item' id='description'><%= @query.description %></p>

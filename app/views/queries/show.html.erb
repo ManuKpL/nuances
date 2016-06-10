@@ -1,7 +1,7 @@
 <!-- BANNER -->
 <div class="page-banner page-banner-notepad">
   <div class="page-banner-title">
-    <h1><%= @query.content %></h1>
+    <h1><%= @query.content.html_safe %></h1>
     <% choices = @query.choices %>
     <% total = choices.length %>
     <% if total > 1 %>

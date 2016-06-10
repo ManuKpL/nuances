@@ -50,7 +50,7 @@
           </div>
           <hr>
           <div class="list-instance-item list-instance-content section-title section-title-small">
-            <%= query.content %>
+            <%= query.content.html_safe %>
             <% status =  %>
             <p>
               <%= query.choices.count %> choix
