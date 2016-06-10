@@ -50,3 +50,10 @@
   }
   &-border-left { border-left: 1px solid $brand-gray !important }
 }
+
+@media screen and (max-width: 544px) {
+  .all-form-no-border-inline {
+    flex-direction: column;
+    .form-inputs { flex: 1 0 auto }
+  }
+}
