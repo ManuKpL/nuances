@@ -1,7 +1,7 @@
 .question {
   &-title {
     font-weight: 900;
-    margin: 20vh 0 50px 0;
+    margin-bottom: 50px;
     position: relative;
     &::after {
       position: absolute;
@@ -14,16 +14,17 @@
       border-radius: 3px;
     }
   }
-  &-details {
-    margin-bottom: 50px;
+  &-description {
+    padding-right: 30px;
     text-align: justify;
-    #description {
-      flex: 3 0 300px;
-      padding-right: 30px;
-      border-right: 1px solid $brand-gray;
-    }
-    #link {
-      flex: 0 0 auto;
+  }
+  &-know-more {
+    margin-top: 40px;
+    padding-top: 20px;
+    width: 100px;
+    white-space: nowrap;
+    border-top: 1px solid $brand-gray;
+    a {
       position: relative;
       color: inherit;
       &::after {
@@ -38,9 +39,9 @@
       }
       &:hover {
         text-decoration: none;
+        color: inherit;
         &::after { background-color: rgba(88, 89, 248, 0.3) }
       }
     }
   }
-  &-item { margin: 15px }
 }
