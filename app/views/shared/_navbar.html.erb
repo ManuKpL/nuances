@@ -1,16 +1,16 @@
 <div class="navbar">
   <div class="container navbar-container">
     <div class="navbar-elements hidden-xs hidden-sm">
-      <%= link_to 'Communauté', users_path, class: "navbar-item" %>
+      <%= link_to 'Communauté', users_path, class: "navbar-item hidden-md" %>
       <% if user_signed_in? %>
-        <%= link_to 'Me positionner', new_answer_path, class: "navbar-item" %>
+        <%= link_to 'Me positionner', new_answer_path, class: "navbar-item hidden-md" %>
       <% end %>
       <hr>
     </div>
     <div class="navbar-title">
       <%= link_to 'Nuances', root_path, class: "navbar-item" %>
     </div>
-    <div class="navbar-elements hidden-xs hidden-sm">
+    <div class="navbar-elements hidden-xs hidden-sm hidden-md">
       <hr>
       <% if user_signed_in? %>
         <%= link_to 'Mon Profil', user_path(current_user), class: "navbar-item" %>
@@ -29,7 +29,7 @@
         <%= link_to 'Me connecter', new_user_session_path, class: "navbar-item" %>
       <% end %>
     </div>
-    <div class="navbar-elements hiden-md hidden-lg">
+    <div class="navbar-elements hidden-lg">
       <hr>
       <div class="navbar-dropdown navbar-item navbar-item-sm">
         <i class="fa fa-bars" aria-hidden="true"></i>
