@@ -16,7 +16,7 @@ gem 'uglifier'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
-gem 'autoprefixer-rails'
+gem 'autoprefixer-rails', '~> 6.3.6.2'
 
 # Image upload
 gem 'cloudinary'
