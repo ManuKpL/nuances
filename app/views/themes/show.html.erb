@@ -34,7 +34,7 @@
       </div>
     </div>
   <% end %>
-  <%= link_to new_query_path, class: 'round-button-new-element-link' do %>
+  <%= link_to new_query_path(theme: @theme.id), class: 'round-button-new-element-link' do %>
     <div class="round-button round-button-bottom round-button-right bg-green flex-center">
       <p><i class="fa fa-plus" aria-hidden="true"></i></p>
       <div class="round-button-new-element bg-green">
@@ -64,7 +64,7 @@
           </div>
           <hr>
           <div class="list-instance-item list-instance-content">
-            <%= query.content %>
+            <%= query.content.html_safe %>
           </div>
           <hr>
           <div class="list-instance-item list-instance-description">

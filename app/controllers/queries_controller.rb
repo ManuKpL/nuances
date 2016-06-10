@@ -1,6 +1,7 @@
 class QueriesController < ApplicationController
 
   before_action :find_query, only: [:show, :edit, :update, :destroy]
+  before_action :find_theme, only: :new
   before_action :verify_editor_rights
 
   def show
@@ -13,11 +14,16 @@ class QueriesController < ApplicationController
   end
 
   def new
-    @query = Query.new
+    if @theme
+      @query = Query.new(theme_id: @theme.id)
+    else
+      @query = Query.new
+    end
   end
 
   def create
     @query = Query.new(query_params)
+    @query.content.gsub!(' ?', '&nbsp;?')
     if @query.save
       redirect_to query_path(@query)
     else
@@ -45,6 +51,10 @@ class QueriesController < ApplicationController
   end
 
   private
+
+  def find_theme
+    @theme = Theme.find(params[:theme]) if params[:theme]
+  end
 
   def find_query
     @query = Query.find(params[:id])

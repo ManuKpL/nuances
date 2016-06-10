@@ -1,32 +1,51 @@
-<div class="container">
-  <h1 class="question-title"><%= @query.content %></h1>
-<% if @query.content == 'Vous avez répondu à toutes les questions disponibles' %>
-  <div class="question-details flex-center">
-    <p class='question-item' id='description'><%= @query.description %></p>
+<div class="marged-top padded-sm">
+  <div class="container">
+    <div class="row">
+
+      <!-- LEFT: QUERY DETAILS -->
+      <div class="col-xs-12 col-md-5">
+        <h1 class="question-title"><%= @query.content.html_safe %></h1>
+        <p class='question-description'><%= @query.description %></p>
+        <% unless [nil, ''].include?(@query.see_more) %>
+          <p class="question-know-more">
+            <%= link_to 'En savoir plus', @query.see_more, target: '_blank' %>
+          </p>
+        <% end %>
+      </div>
+      <!-- LEFT: QUERY DETAILS -->
+
+      <!-- RIGHT: CHOICES -->
+      <div class="col-xs-12 col-md-7">
+        <% if @query.content == 'Vous avez répondu à toutes les questions disponibles' %>
+          <div class="choices-group marged-bottom">
+            <%= link_to new_answer_path(reset: :all) do %>
+              <div class="choices-group-item bg-blue">
+                <p>Recommencer mon positionnement</p>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="choices-group marged-bottom">
+            <% @query.choices.each do |choice| %>
+              <%= link_to answers_path(answer: { query_id: @query.id, choice_id: choice.id }), method: :create do %>
+                <div class="choices-group-item <%= @backgrounds.sample %>">
+                  <p><%= choice.content %></p>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <!-- RIGHT: CHOICES -->
+
+    </div>
   </div>
 </div>
-  <div class="container choices-group marged-bottom">
-    <%= link_to new_answer_path(reset: :all) do %>
-      <div class="choices-group-item bg-blue">
-        <p>Recommencer mon positionnement</p>
-      </div>
-    <% end %>
-  </div>
+
+<!-- BOTTOM BANNER -->
+<% if @query.content == 'Vous avez répondu à toutes les questions disponibles' %>
   <div class="text-center padded-sm bg-red to-bottom top-buffer">Plus de question disponible</div>
 <% else %>
-  <div class="question-details flex-center">
-    <p class='question-item' id='description'><%= @query.description %></p>
-    <%= link_to 'En savoir plus', @query.see_more, class: 'question-item', id: 'link', target: '_blank' %>
-  </div>
-</div>
-  <div class="container choices-group marged-bottom">
-    <% @query.choices.each do |choice| %>
-      <%= link_to answers_path(answer: { query_id: @query.id, choice_id: choice.id }), method: :create do %>
-        <div class="choices-group-item <%= @backgrounds.sample %>">
-          <p><%= choice.content %></p>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
   <div class="text-center padded-sm bg-green to-bottom top-buffer">Question <%= @count %> sur <%= @total %></div>
 <% end %>
+<!-- BOTTOM BANNER -->
