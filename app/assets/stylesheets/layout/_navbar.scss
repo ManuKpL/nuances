@@ -40,6 +40,12 @@
       transition: background-color 0.3s ease;
       text-decoration: none;
     }
+    &-sm {
+      border-bottom: none;
+      font-size: 30px;
+      width: 100px;
+      margin-right: -16px;
+    }
   }
   &-dropdown {
     position: relative;
@@ -62,6 +68,22 @@
           background-color: rgba(250,250,250,0.3);
           transition: background-color 0.3s ease;
           text-decoration: none;
+        }
+      }
+      &-sm {
+        width: 50vw;
+        text-align: right;
+        font-size: 16px;
+        line-height: 45px;
+        padding-bottom: 10px;
+        &-title {
+          font-family: 'Playfair Display';
+          font-weight: 900;
+          line-height: 35px;
+          margin: 10px 0 0 0;
+          padding-right: 10px;
+          font-size: 18px;
+          border-bottom: 3px solid rgba(250,250,250,0.7);
         }
       }
     }
