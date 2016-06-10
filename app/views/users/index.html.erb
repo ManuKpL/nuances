@@ -1,5 +1,12 @@
-<div class="container padded">
-  <h1 class="text-center padded-sm">Communauté</h1>
+<div class="container">
+  <div class="text-center marged-top padded-sm">
+    <h1>Communauté</h1>
+    <% if user_signed_in? %>
+      <p>Comparez votre proximité avec les autres membres sur chaque thème de questions</p>
+    <% else %>
+      <p>Découvrez la proximité de chaque membre avec l'ensemble de la communauté en fonction des thèmes de questions</p>
+    <% end %>
+  </div>
   <div class="row">
     <% @users.each do |user| %>
       <div class="col-xs-12 col-sm-6 col-md-4 flex-center">
