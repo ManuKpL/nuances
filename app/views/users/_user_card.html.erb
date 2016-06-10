@@ -7,15 +7,14 @@
         <li class="user-card-badges-badge <%= @backgrounds[index] %>">
           <div class="user-card-badges-name <%= @backgrounds[index] %>"><%= theme.name %></div>
           <% compared_user = @user ? @user : user %>
-          <% @user_data = compare_answers(compared_user, theme, comparison) %>
-          <%= @user_data[:theme_percentage] %>
+          <%= compare_answers(compared_user, theme, comparison) %>
         </li>
       <% end %>
     </ul>
     <% photo = user[:photo] ? user.photo : 'placeholder' %>
     <%= cl_image_tag photo, height: 150, width: 150, crop: :fill, class: 'user-card-photo' %>
-  <div class="user-card-answered-queries">
-    <p><span><%= @user_data[:total_percentage] %></span> de réponse</p>
-  </div>
+    <div class="user-card-answered-queries">
+      <p><span><%= answered_queries(user) %></span> de réponse</p>
+    </div>
   </div>
 </div>
