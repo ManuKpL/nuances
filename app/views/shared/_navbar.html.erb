@@ -25,19 +25,8 @@
       <hr>
     </div>
     <div class="navbar-elements hidden-xs hidden-sm hidden-md">
-      <%= link_to 'Communauté', users_path, class: "navbar-item" %>
       <% if user_signed_in? %>
         <%= link_to 'Me positionner', new_answer_path, class: "navbar-item" %>
-      <% end %>
-      <hr>
-    </div>
-    <div class="navbar-title">
-      <%= link_to 'Nuances', root_path, class: "navbar-item" %>
-    </div>
-    <div class="navbar-elements hidden-xs hidden-sm">
-      <hr>
-      <% if user_signed_in? %>
-        <%= link_to 'Mon Profil', user_path(current_user), class: "navbar-item hidden-md" %>
         <% if current_user.editor %>
           <div class="navbar-dropdown navbar-item hidden-md">
             Administration
@@ -48,6 +37,19 @@
             </div>
           </div>
         <% end %>
+      <% end %>
+      <hr>
+    </div>
+    <div class="navbar-title">
+      <%= link_to 'Nuances', root_path, class: "navbar-item" %>
+    </div>
+    <div class="navbar-elements hidden-xs hidden-sm">
+      <hr>
+      <%= link_to 'Communauté', users_path, class: "navbar-item" %>
+      <% if user_signed_in? %>
+        <%= link_to 'Mon Profil', user_path(current_user), class: "navbar-item hidden-md" %>
+      <% end %>
+      <% if user_signed_in? %>
         <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: "navbar-item hidden-md" %>
       <% else %>
         <%= link_to 'Me connecter', new_user_session_path, class: "navbar-item hidden-md" %>

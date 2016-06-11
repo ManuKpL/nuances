@@ -13,7 +13,6 @@ class AnswersController < ApplicationController
   end
 
   def new
-    @backgrounds = %w(bg-dark-blue bg-blue bg-light-blue)
   end
 
   def create

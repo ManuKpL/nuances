@@ -28,7 +28,7 @@
           <div class="choices-group marged-bottom">
             <% @query.choices.each do |choice| %>
               <%= link_to answers_path(answer: { query_id: @query.id, choice_id: choice.id }), method: :create do %>
-                <div class="choices-group-item <%= @backgrounds.sample %>">
+                <div class="choices-group-item bg-blue">
                   <p><%= choice.content %></p>
                 </div>
               <% end %>
