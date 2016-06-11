@@ -1,5 +1,6 @@
 <div class="user-card2 flex-center">
-  <div class="user-card2-inner">
+<% border_style = user.celeb ? 'user-card2-inner user-card2-inner-blue' : 'user-card2-inner' %>
+  <div class="<%= border_style %>">
     <p class="user-card2-nickname" id="top"><%= user.nickname %></p>
     <p class="user-card2-nickname" id="bottom"><%= user.nickname %></p>
     <ul class="user-card2-badges">
@@ -12,7 +13,8 @@
       <% end %>
     </ul>
     <% photo = user[:photo] ? user.photo : 'placeholder' %>
-    <%= cl_image_tag photo, height: 150, width: 150, crop: :fill, class: 'user-card2-photo' %>
+    <% photo_style = user.celeb ? 'user-card2-photo user-card2-photo-bordered' : 'user-card2-photo' %>
+    <%= cl_image_tag photo, height: 150, width: 150, crop: :fill, class: photo_style %>
     <p class="user-card2-name"><%= user.nickname %></p>
     <!-- <div class="user-card2-answered-queries"> -->
       <!-- <p><span><%#= answered_queries(user) %></span> de réponse</p> -->

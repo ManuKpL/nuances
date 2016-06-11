@@ -15,8 +15,8 @@
     width: 280px;
     height: 430px;
     border-radius: 20px;
-    background-color: rgba(255,255,255,1);
     border: 5px solid $gray;
+    &-blue { border: 5px solid $light-blue }
   }
   &-nickname {
     position: absolute;
@@ -28,7 +28,12 @@
   }
   #top { top: -12.5px; left: 20px }
   #bottom { bottom: -12.5px; right: 20px; transform: rotate(180deg) }
-  &-photo { border-radius: 50%; margin: 25px 0 10px 0 }
+  &-photo {
+    border-radius: 50%;
+    margin: 25px 0 10px 0;
+    box-shadow: 1px 1px 3px $brand-gray;
+    &-bordered { border: 5px solid lighten($blue, 10%) }
+  }
   &-name { font-family: 'Playfair Display'; font-weight: 900; font-size: 22px }
   &-badges {
     position: absolute;
