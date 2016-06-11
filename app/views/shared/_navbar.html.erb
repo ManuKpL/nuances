@@ -53,7 +53,7 @@
       <%#= link_to 'Communauté', users_path, class: "navbar-item" %>
       <% if user_signed_in? %>
         <div class="navbar-dropdown navbar-item ">
-          <% photo = current_user[:photo] ? user.photo : 'placeholder' %>
+          <% photo = current_user[:photo] ? current_user.photo : 'placeholder' %>
           <%= cl_image_tag photo, height: 35, width: 35, crop: :fill, class: 'navbar-photo' %>
           <div class="navbar-dropdown-menu navbar-dropdown-menu-profile">
               <%= link_to user_path(current_user), class: "navbar-dropdown-menu-item" do %>

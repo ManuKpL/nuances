@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
 
-permit_params :email, :first_name, :last_name, :nickname, :twitter, :facebook, :admin, :editor, :photo
+permit_params :email, :first_name, :last_name, :nickname, :twitter, :facebook, :admin, :editor, :photo, :celeb
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -21,6 +21,7 @@ index do
   column :email
   column :admin
   column :editor
+  column :celeb
   column :first_name
   column :last_name
   column :twitter
@@ -46,6 +47,7 @@ form do |f|
   f.inputs "Admin" do
     f.input :admin
     f.input :editor
+    f.input :celeb
   end
   f.actions
 end
