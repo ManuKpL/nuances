@@ -1,20 +1,21 @@
-<div class="user-card flex-center">
-  <div class="user-card-inner flex-center">
-    <p class="user-card-nickname" id="top"><%= user.nickname %></p>
-    <p class="user-card-nickname" id="bottom"><%= user.nickname %></p>
-    <ul class="user-card-badges">
+<div class="user-card2 flex-center">
+  <div class="user-card2-inner">
+    <p class="user-card2-nickname" id="top"><%= user.nickname %></p>
+    <p class="user-card2-nickname" id="bottom"><%= user.nickname %></p>
+    <ul class="user-card2-badges">
       <% @themes.each_with_index do |theme, index| %>
-        <li class="user-card-badges-badge <%= @backgrounds[index] %>">
-          <div class="user-card-badges-name <%= @backgrounds[index] %>"><%= theme.name %></div>
+        <li class="user-card2-badges-badge <%= @backgrounds[index] %>">
+          <div class="user-card2-badges-name <%= @backgrounds[index] %>"><%= theme.name %></div>
           <% compared_user = @user ? @user : user %>
           <%= compare_answers(compared_user, theme, comparison) %>
         </li>
       <% end %>
     </ul>
     <% photo = user[:photo] ? user.photo : 'placeholder' %>
-    <%= cl_image_tag photo, height: 150, width: 150, crop: :fill, class: 'user-card-photo' %>
-    <div class="user-card-answered-queries">
-      <p><span><%= answered_queries(user) %></span> de réponse</p>
-    </div>
+    <%= cl_image_tag photo, height: 150, width: 150, crop: :fill, class: 'user-card2-photo' %>
+    <p class="user-card2-name"><%= user.nickname %></p>
+    <!-- <div class="user-card2-answered-queries"> -->
+      <!-- <p><span><%#= answered_queries(user) %></span> de réponse</p> -->
+    <!-- </div> -->
   </div>
 </div>
