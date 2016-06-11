@@ -1,5 +1,13 @@
 <div class="navbar">
   <div class="container navbar-container">
+
+    <!-- LOGO -->
+    <div class="navbar-title">
+      <%= link_to 'Nuances', root_path, class: "navbar-item" %>
+    </div>
+    <!-- LOGO -->
+
+    <!-- MOBILE DROPDOWN MENU -->
     <div class="navbar-elements hidden-lg">
       <div class="navbar-dropdown navbar-item navbar-item-sm">
         <i class="fa fa-bars" aria-hidden="true"></i>
@@ -24,11 +32,15 @@
       </div>
       <hr>
     </div>
+    <!-- MOBILE DROPDOWN MENU -->
+
+    <!-- ELEMENTS CONTAINER -->
+    <hr>
     <div class="navbar-elements hidden-xs hidden-sm hidden-md">
       <% if user_signed_in? %>
         <%= link_to 'Me positionner', new_answer_path, class: "navbar-item" %>
         <% if current_user.editor %>
-          <div class="navbar-dropdown navbar-item hidden-md">
+          <div class="navbar-dropdown navbar-item">
             Administration
             <div class="navbar-dropdown-menu">
               <%= link_to 'Dashboard', admin_root_path, class: "navbar-dropdown-menu-item" if current_user.admin %>
@@ -38,26 +50,27 @@
           </div>
         <% end %>
       <% end %>
-      <hr>
-    </div>
-    <div class="navbar-title">
-      <%= link_to 'Nuances', root_path, class: "navbar-item" %>
-    </div>
-    <div class="navbar-elements hidden-xs hidden-sm">
-      <hr>
       <%= link_to 'Communauté', users_path, class: "navbar-item" %>
       <% if user_signed_in? %>
-        <%= link_to 'Mon Profil', user_path(current_user), class: "navbar-item hidden-md" %>
-      <% end %>
-      <% if user_signed_in? %>
-        <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: "navbar-item hidden-md" %>
+        <div class="navbar-dropdown navbar-item ">
+          <% photo = current_user[:photo] ? user.photo : 'placeholder' %>
+          <%= cl_image_tag photo, height: 35, width: 35, crop: :fill, class: 'navbar-photo' %>
+          <div class="navbar-dropdown-menu navbar-dropdown-menu-profile">
+              <%= link_to user_path(current_user), class: "navbar-dropdown-menu-item" do %>
+                <i class="fa fa-user" aria-hidden="true"></i> Profil
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete, class: "navbar-dropdown-menu-item" do %>
+                <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+              <% end %>
+          </div>
+        </div>
       <% else %>
-        <%= link_to 'Me connecter', new_user_session_path, class: "navbar-item hidden-md" %>
+        <%= link_to new_user_session_path, class: "navbar-ite" do %>
+          <i class="fa fa-sign-in" aria-hidden="true"></i> Connexion
+        <% end %>
       <% end %>
     </div>
-    </div>
-  </div>
-</div>
->
+    <!-- ELEMENT CONTAINER -->
+
   </div>
 </div>
