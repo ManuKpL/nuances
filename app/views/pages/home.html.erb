@@ -14,12 +14,10 @@
         <b>MOI</b>
         <p>Ce que j'en pense</p>
       <% end %>
-      <%= link_to users_path, class: "home-banner-cta bg-red flex-center" do %>
-        <b>EUX</b>
-        <p>Ce qu'ils en pensent</p>
-      <% end %>
-    <% else %>
-      <%= link_to 'La communauté', users_path, class: "home-banner-cta bg-red flex-center" %>
+    <% end %>
+    <%= link_to users_path, class: "home-banner-cta bg-red flex-center" do %>
+      <b>EUX</b>
+      <p>Ce qu'ils en pensent</p>
     <% end %>
   </div>
   <!-- CTA -->
