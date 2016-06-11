@@ -18,9 +18,16 @@
       <div class="col-xs-12 col-md-7">
         <% if @query.content == 'Vous avez répondu à toutes les questions disponibles' %>
           <div class="choices-group marged-bottom">
+            <%= link_to users_path do %>
+              <div class="choices-group-item choices-group-item-users text-center bg-dark-blue">
+                <b>EUX</b>
+                <p>Ce qu'ils en pensent</p>
+              </div>
+            <% end %>
             <%= link_to new_answer_path(reset: :all) do %>
-              <div class="choices-group-item bg-blue">
-                <p>Recommencer mon positionnement</p>
+              <div class="choices-group-item choices-group-item-users text-center bg-blue">
+                <b>MOI</b>
+                <p>Répondre à nouveau</p>
               </div>
             <% end %>
           </div>
@@ -28,7 +35,7 @@
           <div class="choices-group marged-bottom">
             <% @query.choices.each do |choice| %>
               <%= link_to answers_path(answer: { query_id: @query.id, choice_id: choice.id }), method: :create do %>
-                <div class="choices-group-item <%= @backgrounds.sample %>">
+                <div class="choices-group-item bg-blue">
                   <p><%= choice.content %></p>
                 </div>
               <% end %>

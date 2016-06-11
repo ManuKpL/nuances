@@ -23,7 +23,7 @@
   &-elements {
     flex: 1 1 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
   }
   a { color: white }
@@ -88,9 +88,11 @@
           border-bottom: 3px solid rgba(250,250,250,0.7);
         }
       }
+      &-profile { width: 100px }
     }
     &:hover > .navbar-dropdown-menu { display: flex }
   }
+  &-photo { border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.7) }
 }
 
 @keyframes navbar-dropdown-menu {

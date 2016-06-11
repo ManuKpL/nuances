@@ -1,0 +1,93 @@
+.user-card2 {
+  background-color: rgba(255,255,255,1);
+  width: 300px !important;
+  height: 450px;
+  border-radius: 25px;
+  border: 1 solid $gray-light;
+  box-shadow: 1px 1px 3px $brand-gray;
+  font-family: 'Open Sans';
+  margin-bottom: 20px;
+  &-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 280px;
+    height: 430px;
+    border-radius: 20px;
+    border: 5px solid $gray;
+    &-blue { border: 5px solid $light-blue }
+  }
+  &-nickname {
+    position: absolute;
+    background-color: rgba(255,255,255,1);
+    padding: 0 5px;
+    border-radius: 5px;
+    margin: 0;
+    font-size: 12px;
+  }
+  #top { top: -12.5px; left: 20px }
+  #bottom { bottom: -12.5px; right: 20px; transform: rotate(180deg) }
+  &-photo {
+    border-radius: 50%;
+    margin: 25px 0 10px 0;
+    box-shadow: 1px 1px 3px $brand-gray;
+    &-bordered { border: 5px solid lighten($blue, 10%) }
+  }
+  &-name { font-family: 'Playfair Display'; font-weight: 900; font-size: 22px }
+  &-badges {
+    position: absolute;
+    right: -10px;
+    bottom: 0;
+    &-badge {
+      display: flex;
+      padding: 2px 4px 2px 7px;
+      margin-bottom: 5px;
+      border-radius: 2px;
+      width: 290px;
+      position: relative;
+      justify-content: flex-end;
+      cursor: pointer;
+    }
+    &-name {
+      height: 100%;
+      padding: 0 5px;
+      top: 0;
+      align-items: center;
+      border-radius: 2px 0 0 2px;
+      transform-origin: 100% 0%;
+      font-size: 16px;
+      margin-top: 1px;
+    }
+  }
+  &-answered-queries {
+    width: 100%;
+    margin-left: 18px;
+    font-size: 12px;
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    span {
+      font-size: 28px;
+      font-family: 'Playfair Display';
+      font-weight: 900;
+    }
+    p { margin: 0 }
+  }
+  &-container-xs {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    overflow-y: hidden;
+    padding-right: 25px;
+  }
+}
+
+@keyframes user-card-badges-name {
+  0% { transform: scaleX(0.1) }
+  100% { transform: scaleX(1) }
+}
+
+@media screen and (max-width: 768px) {
+  .user-card { margin: 55px 30px 0 30px; padding: 0 10px }
+}
