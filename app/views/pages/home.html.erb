@@ -1,8 +1,23 @@
 <div class="home-banner flex-center">
+
+  <!-- TITRE -->
   <div class="home-banner-text text-center">
     <h1>Nuances</h1>
     <p>Construire, comprendre et comparer son positionnement politique pour ouvrir une nouvelle fenêtre sur le débat et l’engagement</p>
   </div>
+  <!-- TITRE -->
+
+  <!-- CTA -->
+  <div class="flex-center">
+    <% if user_signed_in? %>
+      <%= link_to 'Me positionner', new_answer_path, class: "home-banner-cta bg-blue flex-center" %>
+      <%= link_to 'Me comparer', users_path, class: "home-banner-cta bg-red flex-center" %>
+    <% else %>
+      <%= link_to 'La communauté', users_path, class: "home-banner-cta bg-red flex-center" %>
+    <% end %>
+  </div>
+  <!-- CTA -->
+
 </div>
 
 <div class="home-item home-item-polygonal bg-light-blue">

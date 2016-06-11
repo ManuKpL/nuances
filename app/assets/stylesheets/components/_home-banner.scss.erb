@@ -13,6 +13,7 @@ $polygon: $height - $home-polygon;
   background-image: url(<%= asset_path('banner.jpg') %>);
   background-size: cover;
   background-position: center;
+  flex-direction: column;
   &-text {
     margin-bottom: 15vh;
     width: 90vw;
@@ -23,6 +24,19 @@ $polygon: $height - $home-polygon;
     h1 {
       font-weight: 900;
       font-size: 5vw;
+    }
+  }
+  &-cta {
+    margin: 0 40px;
+    font-size: 24px;
+    border: 1px solid rgba(250,250,250,0.7);
+    border-radius: 2px;
+    width: 250px;
+    height: 150px;
+    &:hover {
+      text-decoration: none;
+      color: white;
+      box-shadow: 0 0 10px rgba(250,250,250,0.7);
     }
   }
 }
