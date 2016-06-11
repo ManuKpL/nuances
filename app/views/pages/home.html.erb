@@ -10,8 +10,14 @@
   <!-- CTA -->
   <div class="flex-center">
     <% if user_signed_in? %>
-      <%= link_to 'Me positionner', new_answer_path, class: "home-banner-cta bg-blue flex-center" %>
-      <%= link_to 'Me comparer', users_path, class: "home-banner-cta bg-red flex-center" %>
+      <%= link_to new_answer_path, class: "home-banner-cta bg-blue flex-center" do %>
+        <b>MOI</b>
+        <p>Ce que j'en pense</p>
+      <% end %>
+      <%= link_to users_path, class: "home-banner-cta bg-red flex-center" do %>
+        <b>EUX</b>
+        <p>Ce qu'ils en pensent</p>
+      <% end %>
     <% else %>
       <%= link_to 'La communauté', users_path, class: "home-banner-cta bg-red flex-center" %>
     <% end %>
