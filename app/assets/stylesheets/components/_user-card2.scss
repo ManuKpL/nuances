@@ -34,7 +34,7 @@
     box-shadow: 1px 1px 3px $brand-gray;
     &-bordered { border: 5px solid lighten($blue, 10%) }
   }
-  &-name { font-family: 'Playfair Display'; font-weight: 900; font-size: 22px }
+  &-name { font-family: $header-font; font-weight: 900; font-size: 22px }
   &-badges {
     position: absolute;
     right: -10px;
@@ -69,7 +69,7 @@
     left: 0px;
     span {
       font-size: 28px;
-      font-family: 'Playfair Display';
+      font-family: $header-font;
       font-weight: 900;
     }
     p { margin: 0 }

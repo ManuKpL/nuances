@@ -1,12 +1,6 @@
 <div class="navbar">
   <div class="container navbar-container">
 
-    <!-- LOGO -->
-    <div class="navbar-title">
-      <%= link_to 'Nuances', root_path, class: "navbar-item" %>
-    </div>
-    <!-- LOGO -->
-
     <!-- MOBILE DROPDOWN MENU -->
     <div class="navbar-elements hidden-lg">
       <div class="navbar-dropdown navbar-item navbar-item-sm">
@@ -34,13 +28,17 @@
     </div>
     <!-- MOBILE DROPDOWN MENU -->
 
+    <!-- LOGO -->
+    <%= link_to 'Nuances', root_path, class: 'navbar-title' %>
+    <!-- LOGO -->
+
     <!-- ELEMENTS CONTAINER -->
     <hr>
     <div class="navbar-elements hidden-xs hidden-sm hidden-md">
       <% if user_signed_in? %>
         <%#= link_to 'Me positionner', new_answer_path, class: "navbar-item" %>
         <% if current_user.editor %>
-          <div class="navbar-dropdown navbar-item">
+          <div class="navbar-dropdown navbar-item navbar-item-bordered">
             Administration
             <div class="navbar-dropdown-menu">
               <%= link_to 'Dashboard', admin_root_path, class: "navbar-dropdown-menu-item" if current_user.admin %>
@@ -65,8 +63,11 @@
           </div>
         </div>
       <% else %>
-        <%= link_to new_user_session_path, class: "navbar-item" do %>
-          <i class="fa fa-sign-in" aria-hidden="true"></i> Connexion
+        <%= link_to new_user_session_path, class: "navbar-item navbar-item-bordered" do %>
+          Se connecter
+        <% end %>
+        <%= link_to new_registration_path(User.new), class: "navbar-item navbar-item-bordered navbar-item-inverted" do %>
+          S'enregistrer
         <% end %>
       <% end %>
     </div>
