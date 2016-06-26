@@ -1,10 +1,10 @@
-$navbar-height: 50px;
+$navbar-height: 60px;
 
 .navbar {
   position: fixed;
   left: 0px;
   top: 0px;
-  z-index: 1;
+  z-index: 5;
   height: $navbar-height;
   width: 100%;
   background: rgb(253,253,253);
@@ -53,32 +53,33 @@ $navbar-height: 50px;
     color: $brand-color;
     transition: color 0.3s ease;
     &:hover {
-      color: rgba(9,12,155,0.7);
-      background: rgba(9,12,155,0.015);
+      color: rgba(9,12,155,0.8);
+      background: rgba(9,12,155,0.01);
       transition: all 0.3s ease;
     }
-    &-bordered { border: 0.5px solid $brand-color; border-radius: 1px }
+    &-bordered {
+      border: 0.5px solid $brand-color;
+      border-radius: 1px;
+      &:hover { border-color: rgba(9,12,155,0.8) }
+    }
     &-inverted {
       color: white !important;
       background-color: $brand-color;
-      &:hover { background-color: rgba(9,12,155,0.7); transition: all 0.3s ease }
-    }
-    &-sm {
-      border-bottom: none;
-      font-size: 30px;
-      width: 100px;
-      margin-left: -16px;
+      &:hover { background-color: rgba(9,12,155,0.9); transition: all 0.3s ease }
     }
   }
   &-dropdown {
     position: relative;
+    font-size: 30px;
     &-menu {
-      line-height: 60px;
       position: absolute;
       display: none;
-      right: 0;
-      width: 100%;
-      top: 101%;
+      right: -21px;
+      width: 50vw;
+      max-width: 200px;
+      padding: 10px 0;
+      font-size: 18px;
+      line-height: 45px;
       background-color: rgb(253,253,253);
       animation-name: navbar-dropdown-menu;
       animation-duration: 0.25s;
@@ -86,33 +87,13 @@ $navbar-height: 50px;
       transform-origin: 50% 0%;
       flex-direction: column;
       &-item {
-        color: $brand-color;
-        text-decoration: none;
+        margin: 0;
         &:hover {
-          background-color: $blue;
-          transition: background-color 0.3s ease;
-          text-decoration: none;
+          color: $gray-dark;
+          transition: color 0.3s ease;
         }
       }
-      &-sm {
-        z-index: 5;
-        width: 50vw;
-        left: 0;
-        text-align: left;
-        font-size: 16px;
-        line-height: 45px;
-        padding-bottom: 10px;
-        &-title {
-          font-family: 'Playfair Display';
-          font-weight: 900;
-          line-height: 35px;
-          margin: 10px 0 0 0;
-          padding-left: 10px;
-          font-size: 18px;
-          border-bottom: 3px solid rgba(250,250,250,0.7);
-        }
-      }
-      &-profile { width: 100px }
+      hr { margin: 5px; height: 1px; background-color: lighten($brand-gray, 90%) }
     }
     &:hover > .navbar-dropdown-menu { display: flex }
   }

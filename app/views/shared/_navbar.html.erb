@@ -1,77 +1,41 @@
 <div class="navbar">
   <div class="container navbar-container">
 
-    <!-- MOBILE DROPDOWN MENU -->
-    <div class="navbar-elements hidden-lg">
-      <div class="navbar-dropdown navbar-item navbar-item-sm">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-        <div class="navbar-dropdown-menu navbar-dropdown-menu-sm">
-          <p class="navbar-dropdown-menu-sm-title">App</p>
-          <%= link_to 'Communauté', users_path, class: "navbar-item" %>
-          <% if user_signed_in? %>
-            <%= link_to 'Me positionner', new_answer_path, class: "navbar-item" %>
-            <p class="navbar-dropdown-menu-sm-title">Profil</p>
-            <%= link_to 'Mon Profil', user_path(current_user), class: "navbar-item" %>
-            <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: "navbar-item" %>
-            <% if current_user.editor %>
-              <p class="navbar-dropdown-menu-sm-title">Administration</p>
-              <%= link_to 'Dashboard', admin_root_path, class: "navbar-item" if current_user.admin %>
-              <%= link_to 'Thèmes', themes_path, class: "navbar-item" %>
-              <%= link_to 'Questions', queries_path, class: "navbar-item" %>
-            <% end %>
-          <% else %>
-            <%= link_to 'Me connecter', new_user_session_path, class: "navbar-item" %>
-          <% end %>
-        </div>
-      </div>
-      <hr>
-    </div>
-    <!-- MOBILE DROPDOWN MENU -->
 
     <!-- LOGO -->
     <%= link_to 'Nuances', root_path, class: 'navbar-title' %>
     <!-- LOGO -->
 
-    <!-- ELEMENTS CONTAINER -->
-    <hr>
-    <div class="navbar-elements hidden-xs hidden-sm hidden-md">
+
+    <!-- DROPDOWN MENU -->
+    <div class="navbar-elements">
+
+      <!-- SIGNED IN -->
       <% if user_signed_in? %>
-        <%#= link_to 'Me positionner', new_answer_path, class: "navbar-item" %>
-        <% if current_user.editor %>
-          <div class="navbar-dropdown navbar-item navbar-item-bordered">
-            Administration
-            <div class="navbar-dropdown-menu">
-              <%= link_to 'Dashboard', admin_root_path, class: "navbar-dropdown-menu-item" if current_user.admin %>
-              <%= link_to 'Thèmes', themes_path, class: "navbar-dropdown-menu-item" %>
-              <%= link_to 'Questions', queries_path, class: "navbar-dropdown-menu-item" %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-      <%#= link_to 'Communauté', users_path, class: "navbar-item" %>
-      <% if user_signed_in? %>
-        <div class="navbar-dropdown navbar-item ">
-          <% photo = current_user[:photo] ? current_user.photo : 'placeholder' %>
-          <%= cl_image_tag photo, height: 35, width: 35, crop: :fill, class: 'navbar-photo' %>
-          <div class="navbar-dropdown-menu navbar-dropdown-menu-profile">
-              <%= link_to user_path(current_user), class: "navbar-dropdown-menu-item" do %>
-                <i class="fa fa-user" aria-hidden="true"></i> Profil
-              <% end %>
-              <%= link_to destroy_user_session_path, method: :delete, class: "navbar-dropdown-menu-item" do %>
-                <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
-              <% end %>
+        <div class="navbar-item navbar-dropdown">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+          <div class="navbar-dropdown-menu">
+            <%= link_to 'Mon profil', user_path(current_user), class: "navbar-item navbar-dropdown-menu-item" %>
+            <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: "navbar-item navbar-dropdown-menu-item" %>
+            <% if current_user.editor %>
+              <hr>
+              <%= link_to 'Dashboard', admin_root_path, class: "navbar-item navbar-dropdown-menu-item" if current_user.admin %>
+              <%= link_to 'Thèmes', themes_path, class: "navbar-item navbar-dropdown-menu-item" %>
+              <%= link_to 'Questions', queries_path, class: "navbar-item navbar-dropdown-menu-item" %>
+            <% end %>
           </div>
         </div>
+      <!-- SIGNED IN -->
+
+      <!-- NOT SIGNED IN -->
       <% else %>
-        <%= link_to new_user_session_path, class: "navbar-item navbar-item-bordered" do %>
-          Se connecter
-        <% end %>
-        <%= link_to new_registration_path(User.new), class: "navbar-item navbar-item-bordered navbar-item-inverted" do %>
-          S'enregistrer
-        <% end %>
+        <%= link_to 'Me connecter', new_user_session_path, class: "navbar-item navbar-item-bordered" %>
+        <%= link_to "M'enregistrer", new_registration_path(User.new), class: "navbar-item navbar-item-bordered navbar-item-inverted hidden-xs" %>
       <% end %>
+      <!-- NOT SIGNED IN -->
+
     </div>
-    <!-- ELEMENT CONTAINER -->
+    <!-- DROPDOWN MENU -->
 
   </div>
 </div>
