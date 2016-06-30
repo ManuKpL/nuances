@@ -72,19 +72,15 @@ $navbar-height: 60px;
     position: relative;
     font-size: 30px;
     &-menu {
-      position: absolute;
-      display: none;
-      right: -21px;
-      width: 50vw;
-      max-width: 200px;
+      position: fixed;
+      left: 0;
+      top: 60px;
+      width: 100vw;
       padding: 10px 0;
       font-size: 18px;
       line-height: 45px;
       background-color: rgb(253,253,253);
-      animation-name: navbar-dropdown-menu;
-      animation-duration: 0.25s;
-      animation-timing-function: ease-out;
-      transform-origin: 50% 0%;
+      box-shadow: 0 5px 10px rgba(206,206,214,0.2);
       flex-direction: column;
       &-item {
         margin: 0;
@@ -95,9 +91,14 @@ $navbar-height: 60px;
       }
       hr { margin: 5px; height: 1px; background-color: lighten($brand-gray, 90%) }
     }
-    &:hover > .navbar-dropdown-menu { display: flex }
   }
   &-photo { border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.7) }
+}
+.collapse .in {
+  animation-name: navbar-dropdown-menu;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-out;
+  transform-origin: 50% 0%;
 }
 
 @keyframes navbar-dropdown-menu {

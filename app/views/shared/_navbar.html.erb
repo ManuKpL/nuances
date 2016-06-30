@@ -13,17 +13,18 @@
       <!-- SIGNED IN -->
       <% if user_signed_in? %>
         <div class="navbar-item navbar-dropdown">
-          <i class="fa fa-bars" aria-hidden="true"></i>
-          <div class="navbar-dropdown-menu">
-            <%= link_to 'Mon profil', user_path(current_user), class: "navbar-item navbar-dropdown-menu-item" %>
-            <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: "navbar-item navbar-dropdown-menu-item" %>
-            <% if current_user.editor %>
-              <hr>
-              <%= link_to 'Dashboard', admin_root_path, class: "navbar-item navbar-dropdown-menu-item" if current_user.admin %>
-              <%= link_to 'Thèmes', themes_path, class: "navbar-item navbar-dropdown-menu-item" %>
-              <%= link_to 'Questions', queries_path, class: "navbar-item navbar-dropdown-menu-item" %>
-            <% end %>
-          </div>
+          <i class="fa fa-bars" data-toggle="collapse" data-target="#dropdown-menu" aria-expanded="false" aria-controls="dropdown-menu" aria-hidden="true"></i>
+        </div>
+
+        <div class="navbar-dropdown-menu collapse" id="dropdown-menu">
+          <%= link_to 'Mon profil', user_path(current_user), class: "navbar-item navbar-dropdown-menu-item" %>
+          <%= link_to 'Me déconnecter', destroy_user_session_path, method: :delete, class: "navbar-item navbar-dropdown-menu-item" %>
+          <% if current_user.editor %>
+            <hr>
+            <%= link_to 'Dashboard', admin_root_path, class: "navbar-item navbar-dropdown-menu-item" if current_user.admin %>
+            <%= link_to 'Thèmes', themes_path, class: "navbar-item navbar-dropdown-menu-item" %>
+            <%= link_to 'Questions', queries_path, class: "navbar-item navbar-dropdown-menu-item" %>
+          <% end %>
         </div>
       <!-- SIGNED IN -->
 
